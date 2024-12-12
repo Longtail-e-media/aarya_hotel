@@ -218,7 +218,7 @@ if (isset($_GET['page']) && $_GET['page'] == "package" && isset($_GET['mode']) &
                     endif; ?>
                 </div>
 
-                <!--<div class="form-row">
+                <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">
                             Brief :
@@ -226,11 +226,11 @@ if (isset($_GET['page']) && $_GET['page'] == "package" && isset($_GET['mode']) &
                     </div>
                     <div class="form-input col-md-20">
                         <textarea placeholder="Brief" class="col-md-6 validate[length[0,200]]" type="text"
-                                  name="sub_title"
-                                  id="sub_title"><?php //echo !empty($packageInfo->sub_title) ? $packageInfo->sub_title : ""; ?></textarea>
+                            name="detail"
+                            id="detail"><?php echo !empty($packageInfo->detail) ? $packageInfo->detail : ""; ?></textarea>
                     </div>
                 </div>
--->
+
                 <div class="form-row">
                     <div class="form-label col-md-12">
                         <label for="">

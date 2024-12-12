@@ -35,6 +35,15 @@ class Slideshow extends DatabaseObject
         return self::find_by_sql("SELECT * FROM " . self::$table_name . " WHERE status=1 $cond  ORDER BY sortorder DESC $cond2");
     }
 
+    //Find all published rows in the database based on the mode i.e. image or video
+    public static function getSlideshow_by_mode($mode = '',$limit='')
+    {
+        global $db;
+        $cond = !empty($mode) ? ' AND mode=' . $mode : '';
+        $cond2 = !empty($limit) ? ' LIMIT ' . $limit : '';
+        return self::find_by_sql("SELECT * FROM " . self::$table_name . " WHERE status=1 $cond  ORDER BY sortorder DESC $cond2");
+    }
+
     //Find a single row in the database
     public static function getslide_by($type = '')
     {

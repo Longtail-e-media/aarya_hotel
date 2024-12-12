@@ -72,10 +72,10 @@ class Download extends DatabaseObject
                     $ext = end($imgarr);
                     if ($ext == "docx" or $ext == "pdf") {
                         $sel = ($Lsel == ("images/download/docs/" . $pageRow->image)) ? 'selected' : '';
-                        $result .= '<option value="images/download/docs/' . $pageRow->image . '" ' . $sel . '>&nbsp;&nbsp;' . $pageRow->title . '</option>';
+                        $result .= '<option value="images/download/docs/' . $pageRow->image . '" ' . $sel . '>  ' . $pageRow->title . '</option>';
                     } else {
                         $sel = ($Lsel == ("down/" . $pageRow->id)) ? 'selected' : '';
-                        $result .= '<option value="media/' . $pageRow->id . '" ' . $sel . '>&nbsp;&nbsp;' . $pageRow->title . '</option>';
+                        $result .= '<option value="media/' . $pageRow->id . '" ' . $sel . '>  ' . $pageRow->title . '</option>';
                     }
                 }
             endforeach;

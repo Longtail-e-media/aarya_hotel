@@ -449,17 +449,17 @@ function getMenuList($caption="", $link="", $type=0, $class="",$nicon=""){
 	$classLink 	= ($class == '') ? '' : 'class="'.$class.'" ';
 	$linkhref	= ($link == '#') ? 'javascript:void(0);' : $link;
 	$base 		= ($linkhref=='javascript:void(0);')?'':BASE_URL;
-	$nicon = !empty($nicon)?'':'';
-	$dropclass = !empty($nicon)?$nicon:" ";
+	$nicon = !empty($nicon)?$nicon:'';
+	$dropclass = !empty($nicon)?'':" ";
 	
 	$escArray	= array(" ","@","!","#","$","%","^","&","*","(",")",",",".","\\","+","=");
 	$captionStr = str_replace($escArray,"_",strtolower($caption));
 	$id 		= "id_".$captionStr;
 	
-	$idLink 	= ($id == '') ? '' : ' id="'.$id.'"';
+	// $idLink 	= ($id == '') ? '' : ' id="'.$id.'"';
 	$linkType	= ($type == 0) ? '' : ' target="_blank"';
 	$linkhref	= ($type == 0) ? BASE_URL.$link : $link;
-	return "<a href=\"".$linkhref."\" ".$classLink.$idLink.$linkType.$dropclass." >".$caption.$nicon."</a>";
+	return "<a href=\"".$linkhref."\" ".$classLink.$linkType.$dropclass." >".$caption.$nicon."</a>";
 }
 function getMenuFootList($caption="", $link="", $type=0, $class="",$nicon=""){
 	/*$classLink 	= ($class == '') ? '' : 'class="show-submenu';*/

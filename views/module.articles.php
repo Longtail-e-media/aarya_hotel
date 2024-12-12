@@ -34,27 +34,73 @@ $resinnh = '';
 
 if (defined('HOME_PAGE')) {
     $recInn = Article::homepageArticle();
+
+    $restst = $ratingStars = '';   
+    $tstRec = Testimonial::get_alltestimonial(9);
+    // pr($tstRec,1);
+    $totalTestimonial = 0;
+    $totalRating = 0;
+    if (!empty($tstRec)) {
+        $totalTestimonial = sizeof($tstRec);
+        foreach ($tstRec as $tstRow) {
+            $totalRating += intval($tstRow->rating);
+        }
+        
+        $avgRating = round(($totalRating / $totalTestimonial),1);
+    }
+    for($i = 0; $i < ceil($avgRating); $i++){
+        $ratingStars .= '
+           <i class="flaticon-star checked"></i>
+        ';
+    }
+    for($i = 0; $i < (5-ceil($avgRating)); $i++){
+        $ratingStars .= '
+            <i class="flaticon-star"></i>
+        ';
+    }
+
+    $ratings ='
+        <div class="position-relative  wow fadeInUp animated text-center" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+            <h6 class="mb-1">'. $avgRating .' out of 5</h6>
+            <div class="de-rating-ext fs-18" style="background-size: cover; background-repeat: no-repeat;">
+                <span class="d-stars">
+                    '. $ratingStars .'
+                </span>
+            </div>
+            <span class="d-block fs-14 mb-0">Based on '.$totalTestimonial.'+ reviews</span>
+        </div>
+    ';
+    // pr($recInn,1);
     if (!empty($recInn)) {
         foreach ($recInn as $innRow) {
-            $content = explode('<hr id="system_readmore" style="border-style: dashed; border-color: orange;" />', trim($innRow->content));
-            $readmore = '';
-            if (!empty($innRow->linksrc)) {
-                $linkTarget = ($innRow->linktype == 1) ? ' target="_blank" ' : '';
-                $linksrc = ($innRow->linktype == 1) ? $innRow->linksrc : BASE_URL . $innRow->linksrc;
-                $readmore = '<a href="' . $linksrc . '" title="">see more</a>';
-            } else {
-                $readmore = (count($content) > 1) ? '<a href="' . BASE_URL . 'page/' . $innRow->slug . '" title="">Read more...</a>' : '';
-            }
-            $resinnh .= '<h1 class="main_title"><em></em>' . $innRow->title . '<!--  <span>Hotel and Bed&amp;Breakfast</span> --></h1>
-        <p class="lead styled">
-            ' . $innRow->content . '
-        </p>';
+            // $content = explode('<hr id="system_readmore" style="border-style: dashed; border-color: orange;" />', trim($innRow->content));
+            // $readmore = '';
+            // if (!empty($innRow->linksrc)) {
+            //     $linkTarget = ($innRow->linktype == 1) ? ' target="_blank" ' : '';
+            //     $linksrc = ($innRow->linktype == 1) ? $innRow->linksrc : BASE_URL . $innRow->linksrc;
+            //     $readmore = '<a href="' . $linksrc . '" title="">see more</a>';
+            // } else {
+            //     $readmore = (count($content) > 1) ? '<a href="' . BASE_URL . 'page/' . $innRow->slug . '" title="">Read more...</a>' : '';
+            // }
+            $resinnh .= '
+                <div class="about__wrapper">
+                    <div class="content">
+                        <span class="h6  d-block wow fadeInUp">'. $innRow->sub_title .'</span>
+                        <h2 class="content__title wow fadeInUp">'. $innRow->title .'</h2>
+                        <p class="content__subtitle wow fadeInUp" data-wow-delay=".3s">'. preg_replace('/<\/?p>/','',$innRow->content) .'</p>
+                    </div>
+
+                    <div class="image">
+                        '. $ratings .'
+                    </div>
+                </div>
+            ';
         }
     }
 
+    $jVars['module:home-article'] = $resinnh;
 }
 
-$jVars['module:home-article'] = $resinnh;
 
 /**
  *      Inner page detail

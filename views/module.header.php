@@ -70,52 +70,62 @@ $header = ob_get_clean();
 
 
 $header = '
-            <div id="mad-page-wrapper" class="mad-page-wrapper">
-                <header id="mad-header" class="mad-header header-2 mad-header--transparent mad-header--transparent-single">
-            <div class="mad-pre-header">
-                <div class="container-fluid">
-                    <div class="mad-header-items float-end">
-                        <div class="mad-header-item">
-                            <div class="mad-our-info">
-                                <div class="mad-info">
-                                    <i class="material-icons-outlined">place</i>
-                                    <span><a href="https://goo.gl/maps/ALjLFcboTNmwziq87" target="_blank">'. $siteRegulars->fiscal_address .'</a></span>
-                                </div>
-                                <div class="mad-info">
-                                    <i class="material-icons-outlined">phone</i>
-                                    <span>'. $tellinked .'</span>
-                                </div>
-                            </div>
+    <div class="header__absolute">
+        <header class="main__header header__function is__home__two">
+            <div class="container-fluid px-5">
+                <div class="row">
+                    <div class="main__header__wrapper">
+                        <div class="main__nav">
+                            <button class="main__nav__toogler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                <img src="'. BASE_URL .'template/web/assets/images/menu.png">
+                            </button>
+                        </div>
+                        <div class="main__logo">
+                            '. $jVars['site:logo'] .'
+                        </div>
+                        <div class="main__right">
+                            <a href="#" class="theme-btn btn-style sm-btn fill"><span>Book</span></a>
+                            <button class="theme-btn btn-style sm-btn fill menu__btn d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                <span><img src="'. BASE_URL .'template/web/assets/images/icon/menu-icon.svg" alt="menu"></span>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+        </header>
+    </div>
+';
 
-            <div class="mad-header-section--sticky-xl">
-                <div class="container-fluid">
-                    <div class="mad-header-items">
-                        <div class="mad-header-item">
-                            <a href="'. BASE_URL . 'home' .'" class="mad-logo">
-                                <img class ="home_logo" src="'. IMAGE_PATH . 'preference/' . $siteRegulars->logo_upload .'" alt="" />
+$offCanvasMenu = '
+    <div class="offcanvas offcanvas-start" id="offcanvasRight">
+        <div class="rts__btstrp__offcanvase">
+            <div class="offcanvase__wrapper">
+                <div class="left__side mobile__menu">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <div class="offcanvase__top">
+                        <div class="offcanvase__logo">
+                            <a href="home">
+                                <img src="'.IMAGE_PATH.'preference/'.$siteRegulars->logo_upload.'" width="108" alt="logo">
                             </a>
                         </div>
-                        <div class="mad-header-item">
-                            <!--================ Navigation ================-->
-                            
-                            <nav class="mad-navigation-container">
+                    </div>
+                    
+                    <div class="rts__desktop__menu">
+                        <nav class="desktop__menu offcanvas__menu">
                             '. $jVars['module:res-menu'] .'
-                                
-                            </nav>
-                            <!--================ End of Navigation ================-->
-
-                            <!-- <div class="mad-actions">
-                                <div class="mad-col">
-                                    <a href="result.php?hotel_code='. $booking_code .'" class="btn">Book Now</a>
-                                </div>
-                            </div> -->
-                        </div>
+                        </nav>
+                    </div>
+                    <div class="offcanvase__mobile__menu">
+                        <div class="mobile__menu__active"></div>
                     </div>
                 </div>
+                <div class="right__side desktop__menu">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
             </div>
-        </header>';
+        </div>
+    </div>
+';
+
 $jVars['module:header'] = $header;
+$jVars['module:off-canvas-menu'] = $offCanvasMenu;

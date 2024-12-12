@@ -3,58 +3,42 @@
 /*
 * Testimonial List Home page
 */
-$restst = '';   
+$restst = $ratingStars = '';   
 $tstRec = Testimonial::get_alltestimonial(9);
+// pr($tstRec,1);
+$totalTestimonial = 0;
+$totalRating = 0;
 if (!empty($tstRec)) {
-    $restst .= '';
+    $totalTestimonial = sizeof($tstRec);
     foreach ($tstRec as $tstRow) {
-        $slink = !empty($tstRow->linksrc) ? $tstRow->linksrc : 'javascript:void(0);';
-        $target = !empty($tstRow->linksrc) ? 'target="_blank"' : '';
-        $rating = '';
-        for ($i = 0; $i < $tstRow->type; $i++){
-            $rating.='<a href="#"><i class="fa-solid fa-star"></i></a>';
-        }
-        $restst .= '';
-        $restst .= '
-        <!-- owl item -->
-                            <div class="mad-grid-item">
-                                <div class="mad-testimonial">
-                                    <div class="mad-testimonial-info">
-                                        <blockquote>
-                                            <p>
-                                                �' . strip_tags($tstRow->content) . '�
-                                            </p>
-                                        </blockquote>
-                                    </div>
-
-                                    <div class="mad-author">
-                                        <div class="mad-author-info">
-                                            <span class="mad-author-name">' . $tstRow->name . ' - ' . $tstRow->via_type . '</span>
-                                              <a href="#"><img src="template/web/images/visor2.png" alt="" /></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-        <!-- / owl item -->
-                    ';
-
-        $restst .= '';
+        $totalRating += intval($tstRow->rating);
     }
-    $restst .= '';
+    
+    $avgRating = round(($totalRating / $totalTestimonial),1);
+}
+for($i = 0; $i < ceil($avgRating); $i++){
+    $ratingStars .= '
+        <i class="fa fa-star checked"></i>
+    ';
+}
+for($i = 0; $i < (5-ceil($avgRating)); $i++){
+    $ratingStars .= '
+        <i class="fa fa-star"></i>
+    ';
 }
 
 $result_last ='
-<div class="mad-section mad-section--stretched mad-colorizer--scheme-color-3 with-svg-img mad-colorizer--scheme-light  content-element-main" data-bg-image-src="footer_4_bg_img.svg">
-                    <!--================ Testimonials ================-->
-                    <div class="mad-testimonials style-2">
-                        <div class="mad-grid mad-grid--cols-1 owl-carousel no-dots nav-size-2">
-                    '. $restst .'
-                    </div>
-                    </div>
-                    <!--================ End of Testimonials ================-->
-                </div>';
-
-
+    <div class="position-relative  wow fadeInUp animated text-center" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+        <h6 class="mb-1">'. $avgRating .' out of 5</h6>
+        <div class="de-rating-ext fs-18" style="background-size: cover; background-repeat: no-repeat;">
+            <span class="d-stars">
+                '. $ratingStars .'
+            </span>
+        </div>
+        <span class="d-block fs-14 mb-0">Based on '.$totalTestimonial.'+ reviews</span>
+    </div>
+';
+// pr($result_last,1);
 $jVars['module:testimonialList123'] = $result_last;
 
 

@@ -10,11 +10,11 @@ $jVars['site:contact-header'] = '<span class="address"><a href="tel:'.$siteRegul
 
 $jVars['site:phone-news-side'] = '<a href="tel:'.$siteRegulars->contact_info.'" class="phone">'.$siteRegulars->contact_info.'</a>';
 
-$jVars['site:fevicon']		=  '<link rel="shortcut icon" href="'.IMAGE_PATH.'preference/'.$siteRegulars->icon_upload.'"> 
+$jVars['site:favicon']		=  '<link rel="shortcut icon" href="'.IMAGE_PATH.'preference/'.$siteRegulars->icon_upload.'"> 
 							    <link rel="apple-touch-icon" href="'.IMAGE_PATH.'preference/'.$siteRegulars->icon_upload.'"> 
 							    <link rel="apple-touch-icon" sizes="72x72" href="'.IMAGE_PATH.'preference/'.$siteRegulars->icon_upload.'"> 
 							    <link rel="apple-touch-icon" sizes="114x114" href="'.IMAGE_PATH.'preference/'.$siteRegulars->icon_upload.'">';
-$jVars['site:logo']			= '<a href="'.BASE_URL.'home" id="logo"><img src="'.IMAGE_PATH.'preference/'.$siteRegulars->logo_upload.'" alt="logo" data-retina="true"/></a>';	
+$jVars['site:logo']			= '<a href="'.BASE_URL.'home" id="logo"><img class="logo__class" src="'.IMAGE_PATH.'preference/'.$siteRegulars->logo_upload.'" width="108" height="100" alt="Aarya Hotel & Spa"/></a>';	
 			    
 $jVars['site:seotitle'] = MetaTagsFor_SEO();
 $jVars['site:googleanalatic'] = $siteRegulars->google_anlytics;

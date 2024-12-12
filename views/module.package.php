@@ -11,63 +11,219 @@ $imageList = '';
 if (defined('HOME_PAGE')) {
     $acid = Package::get_accommodationId();
     $pkgRec = Package::find_by_id($acid);
+    // pr($pkgRec,1);
+    $unSerializedImgs = '';
+    $homeRooms = $finalPkgSec = $roomNavBlock = '';
+    
     if (!empty($pkgRec)) {
+
+        $unSerializedImgs = unserialize($pkgRec->banner_image);
+        // pr($unSerializedImgs,1);
+        $allIdSlider = '';
+        
+        foreach($unSerializedImgs as $sliderImg){
+            $file_path = SITE_ROOT .'images/package/banner/'.$sliderImg;
+    
+            if(file_exists($file_path)){
+                $imgLink = IMAGE_PATH.'package/banner/'.$sliderImg;
+            }else{
+                $imgLink = BASE_URL.'template/web/assets/images/room/1.webp';
+            }
+
+            $allIdSlider .= '
+                <div class="swiper-slide room__wrapper">
+                    <div class="room__card is__style__four">
+                        <div class="room__card__top">
+                            <div class="room__card__image">
+                                <a href="#">
+                                    <img src="'. $imgLink .'" width="645" height="438" alt="room card">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ';
+        }
+
+
+        $homeRooms .= '
+            <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all">
+                <div class="room__card is__style__four">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="room__card__top">
+                                <div class="room__slider overflow-hidden wow fadeInUp" data-wow-delay=".5s">
+                                    <div class="swiper-wrapper ">
+                                        <!-- single room slider -->
+                                        '. $allIdSlider .'
+                                        <!-- single room slider end -->
+                                    </div>
+                                </div>
+                                <div class="rts__pagination">
+                                    <div class="rts-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="room__card__meta">
+                                <a href="#" class="room__card__title h4">'. $pkgRec->title .'</a>
+                                '. $pkgRec->content .'
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ';
+
+        $unSerializedImgs = '';
+
         $subRec = Subpackage::getPackage_limit($acid);
+        // pr($subRec,1);
 
         if (!empty($subRec)) {
             $imglink = '';
-            $reshmpkg .= '';
+            
+            foreach($subRec as $key => $subRow){
 
-            $reshmpkg .= "";
-            foreach ($subRec as $subRow) {
+                if($subRow->image != 'a:0:{}'){
+                    $subImageSlider = '';
+                    $unSerializedImgs = unserialize($subRow->image);
+                    foreach($unSerializedImgs as $uImg){
+                        $file_path = SITE_ROOT .'images/subpackage/'.$uImg;
 
-                $features_of_rooms = '';
-                if($subRow->class_room_style == 'best_deal'){
-                    $features_of_rooms = '<div class="tags discount">Best Deal</div>';
+                        if(file_exists($file_path)){
+                            $imgLink = IMAGE_PATH.'subpackage/'.$uImg;
+                        }else{
+                            $imgLink = BASE_URL.'template/web/assets/images/room/1.webp';
+                        }
+
+                        $subImageSlider .= '
+                            <div class="swiper-slide room__wrapper">
+                                <div class="room__card is__style__four">
+                                    <div class="room__card__top">
+                                        <div class="room__card__image">
+                                            <a href="#">
+                                                <img src="'. $imgLink .'" width="645" height="438" alt="room card">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ';
+                    }
                 }
-                elseif($subRow->class_room_style == 'featured_room'){
-                    $features_of_rooms = '<div class="tags featured">Featured Room</div>';
+
+                // pr($subRow,1);
+                $id = '';
+                if($subRow->slug == 'presidential-suite'){
+                    $id = 'vegan';
+                }
+                elseif($subRow->slug == 'deluxe'){
+                    $id = 'cold';
+                }
+                elseif($subRow->slug == 'executive-suite'){
+                    $id = 'dips';
+                }
+                elseif($subRow->slug == 'junior-suite'){
+                    $id = 'burger';
                 }
 
-                $img123 = unserialize($subRow->image);
+                $homeRooms .= '
+                    <div class="tab-pane fade" id="'. $id .'" role="tabpanel" aria-labelledby="'. $id .'">
+                            <div class="room__card is__style__four">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="room__card__top">
+                                            <div class="room__slider overflow-hidden wow fadeInUp" data-wow-delay=".5s">
+                                                <div class="swiper-wrapper ">
+                                                    <!-- single room slider -->
+                                                        '. $subImageSlider .'
+                                                    <!-- single room slider end -->
+                                                </div>
+                                            </div>
+                                            <div class="rts__pagination">
+                                                <div class="rts-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1" aria-current="true"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                if (!empty($subRow->image)) {
+                                    <div class="col-md-6">
+                                        <div class="room__card__meta">
+                                            <a href="#" class="room__card__title h4">'. $subRow->title .'</a>
+                                            <div class="room__card__meta__info">
+                                                <span>'. $subRow->occupancy .' Guests</span>
+                                                <span>'. $subRow->room_size .'</span>
+                                            </div>
+                                            <p class="font-sm pt-4">'. $subRow->detail .'</p>
+                                            
+                                            <a href="'. $subRow->slug .'" class="room__card__link mt-5">View Details</a>
+                                            <br/>
 
-                    $imgpath = IMAGE_PATH . 'subpackage/' . $img123[0];
-                } else {
-                    $imgpath = IMAGE_PATH . 'static/inner-img.jpg';
+                                            <a href="#" class="theme-btn btn-style sm-btn fill mt-5"><span>Book Now</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                ';
+                
+                $file_path2 = SITE_ROOT.'images/subpackage/image/'.$subRow->image2;
+                if(file_exists($file_path2)){
+                    $imgLink2 = IMAGE_PATH.'subpackage/image/'.$subRow->image2;
+                }else{
+                    $imgLink2 = BASE_URL.'template/web/assets/images/room/1.webp';
                 }
-                $file_path = SITE_ROOT . 'images/subpackage/' . $img123[0];
-                if (file_exists($file_path) and !empty($subRow->image)) {
-                                $reshmpkg .= '
-                            <div class="col-md-4 room-item wow fadeInUp" data-wow-delay=".4s">
-                               <div class="inner">
-                                   '. $features_of_rooms .'
-                                   <img src="' . $imgpath . '" class="img-responsive" alt="' . $subRow->title . '">
-                                   <h3>' . $subRow->title . '</h3>
-                                   <div class="price_from">Start From <span>'. $subRow->currency .' ' . $subRow->onep_price . '++</span>/night</div>
-                                   <div class="spacer-half"></div>
-                                   <a href="' . BASE_URL . $subRow->slug . '" class="btn-detail">View Details</a>
-                               </div>
-                           </div>
-                                ';
-                            
-                }
+                
+                $roomNavBlock .= '
+                    <div class="col-md-3 nav-link" data-bs-toggle="tab" data-bs-target="#'. $id .'" aria-controls="'. $id .'">
+                        <div class="room__card__image">
+                            <img src="'. $imgLink2 .'" alt="room card">
+                        </div>
+                        <h6 class="pt-3">'. $subRow->title .'</h6>
+                    </div>
+                ';
             }
-            $reshmpkg .= '';
+
         }
+        
+        $finalPkgSec .= '
+            <div class="rts__section room-home-page section__padding">
+                <div class="container-fluid px-5">
+                    <div class="row justify-content-center text-center mb-40">
+                        <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
+                            <div class="section__topbar pb-4">
+                                <span class="h6 mx-auto">ELEGANT ROOMS</span>
+                                <h4 class="section__title">'. $pkgRec->sub_title .'</h4>
+                                <p>'. $pkgRec->detail .'</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- row end -->
+    
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- resturant menu content -->
+                            <div class="tab-content mb-50" id="nav-tabContent">
+                                '. $homeRooms .'
+                            </div>
+                            <!-- resturant menu content end -->
+    
+                            <div class="resturant__menu__list">
+                                <div class="nav nav-tabs row" id="nav-tab" role="tablist">
+                                    '. $roomNavBlock .'
+                                    <button class="nav-link active setame d-none" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">All</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ';
     }
 
-
+    $jVars['module:home-accommodation'] = $finalPkgSec;
 }
-
-
-
-
-$jVars['module:home-accommodation'] = $reshmpkg;
-
-
-
 
 
 /*
@@ -137,119 +293,75 @@ $jVars['module:newpkg'] = $newpkg;
 $reshplist = $pakagehometype = '';
 $cnt = 1;
 if (defined('HOME_PAGE')) {
-    $pgkRows = Package::find_by_id(1);
-    $pkgRec = Subpackage::getPackage_limits(1, 6);
+    $pgkRows = Package::find_by_id(16);
+    $pkgRec = Subpackage::getPackage_limits(16,4);
 
+    // pr($pgkRows,1);
     if (!empty($pkgRec)) {
+        $subPkgRecreation = '';
 
-        foreach ($pkgRec as $pkgRow) {
-            //echo "<pre>";print_r($pkgRow);die();
+        foreach($pkgRec as $key => $pkgRow){
+            $marginClass = ($key % 2 == 0) ? '' : 'mt-6';
 
-            //if(!empty($pkgRow->image2)) {
-
-
-            //echo "<pre>";print_r($reshplist);die();
-            if (($cnt % 3) == 2) {
-                $reshplist .= ' <div class="container margin_60">
-        <div class="row">
-            <div class="col-md-5 col-md-offset-1 col-md-push-5">
-                  <figure class="room_pic left"><a href="' . BASE_URL . '' . $pkgRow->slug . '"><img src="' . IMAGE_PATH . 'subpackage/image/' . $pkgRow->image2 . '" alt="' . $pkgRow->title . '" class="img-responsive"></a><span class="wow zoomIn"><sup>' . $pkgRow->currency . ' </sup>' . $pkgRow->onep_price . '<small>Per night</small></span></figure>
-            </div>
-            <div class="col-md-4 col-md-offset-1 col-md-pull-6">
-                <div class="room_desc_home">
-                    <h3>' . $pkgRow->title . '</h3>
-                    <p>
-                         ' . $pkgRow->detail . ' 
-                    </p>
-                    <ul>';
-                $saveRec = unserialize($pkgRow->feature);
-                $count = 1;
-                if ($saveRec != null) {
-                    $featureList = $saveRec[47][1];
-                    //echo "<pre>";print_r($featureList);die();
-
-                    if (!empty($featureList)) {
-                        $icoRec = '';
-
-                        foreach ($featureList as $fetRow) {
-
-                            $icoRec = Features::get_by_id($fetRow);
-                            $reshplist .= '<li>
-                            <div class="tooltip_styled tooltip-effect-4">
-                                <span class="tooltip-item"><i class="' . $icoRec->icon . '"></i></span>
-                                    <div class="tooltip-content">' . $icoRec->title . '</div>
-                              </div>
-                              </li>';
-
-
-                            if ($count++ == 5) break;
-                        }
-                    }
-                }
-                $reshplist .= '</ul>
-                    <a href="' . BASE_URL . '' . $pkgRow->slug . '" class="btn_1_outline">Read more</a>
-                </div><!-- End room_desc_home -->
-            </div>
-        </div><!-- End row -->
-    </div>';
-
-            } else {
-                $reshplist .= '  <div class="container_styled_1">
-        <div class="container margin_60">
-            <div class="row">
-                <div class="col-md-5 col-md-offset-1">
-                    <figure class="room_pic"><a href="' . BASE_URL . '' . $pkgRow->slug . '"><img src="' . IMAGE_PATH . 'subpackage/image/' . $pkgRow->image2 . '" alt="' . $pkgRow->title . ' " class="img-responsive"></a><span class="wow zoomIn"><sup>' . $pkgRow->currency . ' </sup>' . $pkgRow->onep_price . '<small>Per night</small></span></figure>
-                </div>
-                <div class="col-md-4 col-md-offset-1">
-                    <div class="room_desc_home">
-                        <h3>' . $pkgRow->title . '  </h3>
-                        <p>
-                            ' . $pkgRow->detail . '
-                        </p>
-                        <ul>';
-                $saveRec = unserialize($pkgRow->feature);
-                $count = 1;
-                if ($saveRec != null) {
-                    $featureList = $saveRec[47][1];
-                    //echo "<pre>";print_r($featureList);die();
-
-                    if (!empty($featureList)) {
-                        $icoRec = '';
-
-                        foreach ($featureList as $fetRow) {
-
-                            $icoRec = Features::get_by_id($fetRow);
-                            $reshplist .= '<li>
-                            <div class="tooltip_styled tooltip-effect-4">
-                                <span class="tooltip-item"><i class="' . $icoRec->icon . '"></i></span>
-                                    <div class="tooltip-content">' . $icoRec->title . '</div>
-                              </div>
-                              </li>';
-
-
-                            if ($count++ == 5) break;
-                        }
-                    }
-                }
-                $reshplist .= '</ul>
-                        <a href="' . BASE_URL . '' . $pkgRow->slug . '" class="btn_1_outline">Read more</a>
-                    </div><!-- End room_desc_home -->
-                </div>
-            </div><!-- End row -->
-        </div><!-- End container -->
-    </div>';
+            $file_path = SITE_ROOT . 'images/subpackage/image/' . $pkgRow->image2;
+            if(file_exists($file_path)){
+                $imageLink = IMAGE_PATH . 'subpackage/image/' . $pkgRow->image2;
+            }else{
+                $imageLink = BASE_URL .'template/web/assets/images/offer/4.webp';
             }
-            $cnt++;
-//}
 
+            $subPkgRecreation .= '
+                <div class="col-lg-3 '. $marginClass .'">
+                    <div class="blog__item is__full is__event">
+                        <div class="blog__item__thumb">
+                            <a href="#">
+                                <img src="'. $imageLink .'" alt="'.$pkgRow->title.'">
+                            </a>
+                        </div>
+                        <div class="blog__item__meta">
+                            <a href="#" class="blog__item__meta__title">
+                                <h5>'. $pkgRow->title .'</h5>
+                            </a>
+                            <div class="blog__item__meta__list">
+                                <p>'. $pkgRow->detail .'</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ';
         }
+
+        $reshplist = '
+             <div class="rts__section blog is__home__three section__padding pillar-icon1" style="background:#f8f2e2;">
+                <div class="section__shape">
+                    <img src="'. BASE_URL .'template/web/assets/images/pillar2.png" alt="">
+                </div>
+                <div class="container-fluid px-5">
+                    <div class="row justify-content-center text-center mb-40">
+                        <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
+                            <div class="section__topbar pb-4">
+                                <span class="h6 mx-auto">'. $pgkRows->title .'</span>
+                                <h4 class="section__title">'. $pgkRows->sub_title .'</h4>
+                                <!--<p>'. preg_replace('/<\/?p>/','<br/>',$pgkRows->content) .'</p>-->
+                                '. $pgkRows->content .'
+                            </div>
+                        </div>
+                    </div>
+                    <!-- row end -->
+                    <div class="row align-items-center g-30">
+                        '. $subPkgRecreation .'
+                    </div>
+                </div>
+            </div>
+        ';
+
     }
     /* $reshplist.= '</div>
                  </div>
              </div>';*/
 }
 
-$jVars['module:home-packagelist'] = $reshplist;
+$jVars['module:home-recreation-Package-list'] = $reshplist;
 $jVars['module:home-package-type-list'] = $pakagehometype;
 
 

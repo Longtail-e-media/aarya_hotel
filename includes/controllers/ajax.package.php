@@ -35,6 +35,7 @@
 			$Package->title    		= $_REQUEST['title'];	
 			$Package->sub_title    	= $_REQUEST['sub_title'];	
 			$Package->content   	= $_REQUEST['content'];
+			$Package->detail   	= $_REQUEST['detail'];
 			$Package->type 		= $_REQUEST['type'];	
 			$Package->meta_title		= $_REQUEST['meta_title'];
 			$Package->meta_keywords		= $_REQUEST['meta_keywords'];
@@ -86,6 +87,7 @@
 			$Package->title    = $_REQUEST['title'];	
 			$Package->sub_title = $_REQUEST['sub_title'];	
 			$Package->content  = $_REQUEST['content'];	
+			$Package->detail  = $_REQUEST['detail'];	
 			$Package->status   = $_REQUEST['status'];	
 			$Package->type 		= $_REQUEST['type'];
 			$Package->meta_title		= $_REQUEST['meta_title'];

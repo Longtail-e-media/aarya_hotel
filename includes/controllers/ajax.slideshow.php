@@ -21,7 +21,7 @@
 			$record->image			= !empty($_REQUEST['imageArrayname'])?$_REQUEST['imageArrayname']:'';
 			//$record->linksrc 		= $_REQUEST['linksrc'];
 			$record->linktype 		= !empty($_REQUEST['linktype '])?$_REQUEST['linktype ']:'0';
-			// $record->content		= $_REQUEST['content'];			
+			$record->content		= $_REQUEST['content'];			
 			// $record->content_greek	= $_REQUEST['content_greek'];
 			// $record->status			= $_REQUEST['status'];
 			// $record->m_status		= $_REQUEST['m_status'];
@@ -70,7 +70,7 @@
 			// $record->title_greek 	= $_REQUEST['title_greek'];
 			//$record->linksrc 		= $_REQUEST['linksrc'];
 			$record->linktype 		= $_REQUEST['linktype'];
-			// $record->content		= $_REQUEST['content'];	
+			$record->content		= $_REQUEST['content'];	
 			$record->image			= !empty($_REQUEST['imageArrayname'])?$_REQUEST['imageArrayname']:'';
 
 			// $record->thumb_image= $_REQUEST['thumb_image'];

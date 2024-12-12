@@ -13133,7 +13133,12 @@ hr{
   display: flex;
   gap: 5px;
 }
-
+.flaticon-star.checked{
+  color: #F2B827 !important;
+}
+.flaticon-star{
+  color: #b3b3b3 !important;
+}
 /*
 if you need custom styles, please add it in this file below
 
