@@ -4,12 +4,12 @@ $lastElement='';
 $phonelinked='';
 $whatsapp='';
 $tellinked = '';
-    $telno = explode("/", $siteRegulars->contact_info);
+    $telno = explode(",", $siteRegulars->contact_info);
     $lastElement = array_shift($telno);
-    $tellinked .= '<a href="tel:' . $lastElement . '" target="_blank">' . $lastElement . '</a>/';
+    $tellinked .= '<a href="tel:' . $lastElement . '" target="_blank" aria-label="footer__contact"> ' . $lastElement . '</a> ,';
     foreach ($telno as $tel) {
         
-        $tellinked .= '<a href="tel:+977-' . $tel . '" target="_blank">' . $tel . '</a>';
+        $tellinked .= '<a href="tel:+977-' . $tel . '" target="_blank" aria-label="footer__contact"> ' . $tel . '</a>';
         if(end($telno)!= $tel){
         $tellinked .= '/';
         }   
@@ -24,132 +24,104 @@ foreach ($phoneno as $phone) {
     $phonelinked .= '/';
     }   
 }
+
+
+
+ $ratingStars = '';   
+$tstRec = Testimonial::get_alltestimonial(9);
+// pr($tstRec,1);
+$totalTestimonial = 0;
+$totalRating = 0;
+if (!empty($tstRec)) {
+    $totalTestimonial = sizeof($tstRec);
+    foreach ($tstRec as $tstRow) {
+        $totalRating += intval($tstRow->rating);
+    }
+    
+    $avgRating = round(($totalRating / $totalTestimonial),1);
+}
+for($i = 0; $i < ceil($avgRating); $i++){
+    $ratingStars .= '
+        <i class="flaticon-star checked"></i>
+    ';
+}
+for($i = 0; $i < (5-ceil($avgRating)); $i++){
+    $ratingStars .= '
+        <i class="flaticon-star"></i>
+    ';
+}
+
+$ratings ='
+    <div class="position-relative  wow fadeInUp animated text-left" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+        <h6 class="mb-1">'. $avgRating .' out of 5</h6>
+        <div class="de-rating-ext fs-18" style="background-size: cover; background-repeat: no-repeat;">
+            <span class="d-stars" style="color:#F2B827;">
+                '. $ratingStars .'
+            </span>
+        </div>
+        <span class="d-block fs-14 mb-0" style="font-size:14px;">Based on '.$totalTestimonial.'+ reviews</span>
+    </div>
+';
+
 $footer = '
-<footer id="mad-footer" class="mad-footer footer-2">
-            <!--================ Footer row ================-->
-            <div class="mad-footer-main">
-                <div class="container-fluid">
-
-                    <div class="row justify-content-between vr-size-2" style="border-bottom: 1px solid #857373;padding-bottom: 10px;margin-bottom: 26px;">
-                        <div class="col-xxl-4 col-xl-4">
-                            <section class="mad-widget">
-                                <h6 class="mad-widget-title">' . $siteRegulars->sitename . '</h6>
-                                <div class="mad-vr-list">
-                                    <ul>
-                                        <li>'. $siteRegulars->fiscal_address .'</li>
-                                        <li><b>Landline:</b> '. $tellinked .'</li>
-                                        <li><b>Phone:</b><a href= "tel:'. $siteRegulars->address .'" target="_blank" > '. $siteRegulars->address .'</a>(Viber, WhatsApp)</li>
-                                        <li><b>Email:</b><a href="mailto:'. $siteRegulars->email_address .'" target="_blank" class="mad-link"> '. $siteRegulars->email_address .'</a>
-                                        </li>
-                                    </ul>
-                                    <div class="mad-social-icons" style="margin-top:12px;">
-                                    <ul>
-                                    ' . $jVars['module:socilaLinkbtm'] . ' 
-                                    </ul>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-
-                        <div class="col-xl-2 col-lg-3 col-md-3">
-                            <!--================ Widget ================-->
-                            <section class="mad-widget">
-                                <h6 class="mad-widget-title">Quick Links</h6>
-                                <div class="mad-vr-list menu">
-                                '. $jVars['module:footer-menu'] .'
-                                   
-                                </div>
-                            </section>
-                            <!--================ End of Widget ================-->
-                        </div>
-
-                        <div class="col-xxl-4 col-xl-4">
-                            <section class="mad-widget">
-                                <h6 class="mad-widget-title">Kathmandu Reservation Office</h6>
-                                <div class="mad-vr-list">
-                                    <ul>
-                                        <li>'. $siteRegulars->mail_address.'</li>
-                                        <li><b>Phone:</b> '. $phonelinked.'</li>
-                                        <li><b>P.O Box:</b> '. $siteRegulars->pobox.'</li>
-                                        <li><b>Email:</b><a href="mailto:'. $siteRegulars->contact_info2.'" class="mad-link"> '. $siteRegulars->contact_info2.'</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>
-                        </div>
-
+    <footer class="rts__section rts__footer is__common__footer footer__background">
+        <div class="container-fluid px-5">
+            <hr style="padding-bottom: 80px;color: #000;">
+            <div class="row">
+                <div class="footer__newsletter">
+                    <div class="rts__widget mb-40">
+                        <a href="' . BASE_URL .'home"><img class="footer__logo text-center" src="'. IMAGE_PATH .'preference/'. $siteRegulars->second_logo .'" alt="footer logo" width="149" height="138"></a>
                     </div>
-                    <div class="row justify-content-between vr-size-2">
-                        <div class="col-xl-4 col-lg-6 col-md-6">
-                            <!--================ Widget ================-->
-                            <section class="mad-widget">
-                                <h6 class="mad-widget-title">Part Of</h6>
-                                <div class="mad-vr-list">
-                                    <ul style="display:flex;">
-                                        <li style="margin-right: 20px;"><img src="template/web/images/awards/ace_footer_logo.png" alt="" style="width: 100px;"></li>
-                                        <li><img src="template/web/images/awards/logo-dark.png" alt="" style="width: 200px;"></li>
-                                    </ul>
-                                </div>
-                            </section>
-                            <!--================ End of Widget ================-->
-                        </div>
-
-                        
-                        
-                        <div class="col-xl-5 col-lg-6 col-md-6">
-                            <!--================ Widget ================-->
-                            <section class="mad-widget">
-                                <h6 class="mad-widget-title">Booking Engine</h6>
-                                <div class="mad-vr-list">
-                                    <ul class="book-eng">
-                                    ' . $jVars['module:otatop'] . ' 
-                                    </ul>
-                                </div>
-                            </section>
-                            <!--================ End of Widget ================-->
-                        </div>
-
-                        <div class="col-xl-3 col-lg-6 col-md-6">
-                            <!--================ Widget ================-->
-                            <section class="mad-widget">
-                                <h6 class="mad-widget-title">Affiliated with</h6>
-                                <div class="btn-set mad-logos">
-                                    <a href="#">
-                                        <img src="template/web/images/awards/han-logo.png" alt="" style="width: 70px;">
-                                    </a>
-
-                                    <a href="#">
-                                        <img src="template/web/images/awards/pata-logo.png" alt="" style="width: 70px;">
-                                    </a>
-                                </div>
-                            </section>
-                            <!--================ End of Widget ================-->
-                        </div>
-
-                        
-                    </div>
-
-                    <div class="mad-footer-bottom">
-                        <p class="copyrights align-center">
-                             '. $jVars['site:copyright'] .'
-                        </p>
+                    <span class="h4 mb-40"> Get the latest updates<br/> Subscribe now!</span>
+                    <div class="rts__form mt-4">
+                        <form action="#" method="post">
+                            <input type="email" name="email" id="subscription" placeholder="Enter Email address" required>
+                            <button type="submit">Sign up now</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <!--================ End of Footer row ================-->
-        </footer>
-        <!--================ End of Footer ================-->
+            <div class="row">
+                <div class="footer__widget__wrapper">
+                    <div class="rts__widget">
+                        <span class="widget__title">Contact Us</span>
+                        <ul>
+                            <li>Narsingha  Chowk, Thamel, Kathmandu, Nepal</li>
+                            <li>Tel.:  '.$tellinked.'</li>
+                            <li>Email:   <a aria-label="footer__contact" href="mailto:'. $siteRegulars->email_address .'"> '. $siteRegulars->email_address .'</a></li>
+                        </ul>
+                    </div>
 
-        
+                    <div class="rts__widget">
+                        '. $jVars['module:footer-rooms-menu'] .'
+                    </div>
+
+                    <div class="rts__widget">
+                        '. $jVars['module:footer-information-menu'] .'
+                    </div>
+                    
+                    <div class="rts__widget">
+                        <span class="widget__title">Reviews</span>
+                        '. $ratings .'
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        
-        
-
-           ';
+        <div class="copyright__text">
+            <div class="container-fluid px-5">
+                <div class="row">
+                    <div class="copyright__wrapper">
+                        <!--<p class="mb-0">© Copyright 2024. All Rights Reserved. Developed by <a href="https://www.longtail.info/" target="_blank">Longtail e-media</a>. For further detail information contact us at <a href="mailto:info@aaryahotel.com">info@aaryahotel.com</a></p>-->
+                        '. $jVars['site:copyright'] .'
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+';
            
 
-$jVars['module:footer-booking'] = $footer;
+$jVars['module:footer'] = $footer;
 
 if(!empty($siteRegulars->whatsapp_a)){
 $whatsapp='

@@ -29,112 +29,71 @@ else{
 }
         // pr($siteRegulars);
     $rescont .= '
-    <!--================ Breadcrumb ================-->
-    <div class="mad-breadcrumb with-bg-img with-overlay" data-bg-image-src="'.$img.'">
-        <div class="container wide">
-            <h1 class="mad-page-title">Contact</h1>
-            <nav class="mad-breadcrumb-path">
-                <span><a href="home" class="mad-link">Home</a></span> /
-                <span>Contact Us</span>
-            </nav>
-        </div>
-    </div>
-    <!--================ End of Breadcrumb ================-->
-
-    <div class="mad-content no-pd">
-        <div class="container">
-            <div class="mad-section">
-                <div class="row vr-size-2">
-                    <div class="col-lg-5">
-                        <div class="mad-title-wrap">
-                            <div class="mad-pre-title">Contact Details</div>
-                            <h2 class="mad-section-title">Get In Touch</h2>
-                        </div>
-                        <div class="mad-vr-list mad-text-medium content-element-3">
-                            <ul>
-                                <li>'. $siteRegulars->fiscal_address .'</li>
-                                <li><b>Landline:'. $tellinked .'</li>
-                                <li><b>Phone:</b> '. $siteRegulars->whatsapp .'</li>
-                                <li>
-                                    <b>Email:</b>
-                                    <a href="mailto: '. $siteRegulars->email_address .'" > '. $siteRegulars->email_address .'</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="mad-social-icons">
-                            <ul>
-                            ' . $jVars['module:socilaLinkbtm'] . ' 
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-7">
-                        <form class="mad-contact-form mad-form type-2 item-col-2" method="post" action="enquery_mail.php" id="form_contact">
-                            <div class="mad-col">
-                                <div class="mad-form-item">
-                                    <label>Title *</label>
-                                    <div class="mad-custom-select">
-                                        <select data-default-text="Please select">
-                                            <option>Mr.</option>
-                                            <option>Mrs.</option>
-                                            <option>Miss</option>
-                                        </select>
+        <div class="rts__section section__padding pillar-icon" style="background: #f8f2e2;">
+            <div class="section__shape">
+                <img src="'. BASE_URL .'template/web/assets/images/pillar.png" alt="pillar">
+            </div>
+            <div class="container px-5">
+                <div class="row g-30 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="rts__contact">
+                            <span class="h5 d-block mb-30">Love to hear from you<br/>
+                                Get in touch!</span><br/>
+                            <form action="enquery_mail.php" method="post" class="rts__contact__form" id="frm_contact">
+                                <div class="form-input">
+                                    <label for="name">Your Name</label>
+                                    <div class="pr">
+                                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                                        <i class="flaticon-user"></i>
+                                    </div>
+                                </div>
+                                <div class="form-input">
+                                    <label for="email">Your Email</label>
+                                    <div class="pr">
+                                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                                        <i class="flaticon-envelope"></i>
                                     </div>
                                 </div>
 
-                                <div class="mad-form-item">
-                                    <label>First name *</label>
-                                    <input type="text" id="cf_name" name="cf_name" required="" placeholder="First Name" />
+                                <div class="form-input">
+                                    <label for="email">Your Address</label>
+                                    <div class="pr">
+                                        <input type="text" id="address" name="address" placeholder="Your Address" required>
+                                        <i class="flaticon-marker"></i>
+                                    </div>
                                 </div>
 
-                                <div class="mad-form-item">
-                                    <label>Last name *</label>
-                                    <input type="text" id="cf_lname" name="cf_lname" required="" placeholder="Last Name"/>
+                                <div class="form-input">
+                                    <label for="email">Your Phone No.</label>
+                                    <div class="pr">
+                                        <input type="number" id="Phone" name="phone" placeholder="Your Phone" required>
+                                        <i class="flaticon-phone-flip"></i>
+                                    </div>
                                 </div>
 
-                                <div class="mad-form-item">
-                                    <label>Email *</label>
-                                    <input type="email"  id="cf_email" name="cf_email" required="" placeholder="Email Address" />
+                                <div class="form-input">
+                                    <label for="msg">Your Message</label>
+                                    <div class="pr">
+                                        <textarea id="msg" name="message" placeholder="Message" required></textarea>
+                                        <img src="'. BASE_URL .'template/web/assets/images/icon/message.svg" width="20" height="20" alt="">
+                                    </div>
                                 </div>
-
-                                <div class="mad-form-item">
-                                    <label>Phone number</label>
-                                    <input type="tel" id="cf_phone" name="cf_phone" placeholder="Phone Number" />
+                                <div class="form-input">
+                                    <div id="g-recaptcha-response" class="g-recaptcha" data-sitekey="6Lf1CysqAAAAAIgmN0_09HdspdNsgi6359cuvp4j"></div>
                                 </div>
-                            </div>
-
-                            <div class="mad-col">
-                                <div class="mad-form-item">
-                                    <label>Address *</label>
-                                    <input type="text" id="cf_name" name="cf_name" required="" placeholder="Address" />
-                                </div>
-
-                                <div class="mad-form-item full-height">
-                                    <label>Message *</label>
-                                    <textarea rows="5" id="message" name="message" required="" placeholder="Message"></textarea>
-                                    
-                                </div>
-
-                                <div class="mad-form-item">
-                                <div id="g-recaptcha-response" class="g-recaptcha" data-sitekey="6Lc2BUAnAAAAACVq_ob7ovqecd3zAFbF1294p5jq"></div>
-                                    <input type="submit" class="btn btn-big" id="submit" value="SUBMIT">
-                                </div>
-                            </div>
-                        </form>
+                                <button type="submit" class="theme-btn btn-style fill w-100"><span>Send Message</span></button>
+                            </form>
+                            <div class="mt-20" id="result_msg" ></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="contact__map">
+                            <iframe src=\''. $siteRegulars->location_map .'\' width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="mad-section no-pd mad-section--stretched-content-no-px mad-colorizer--scheme-">
-                <div class="mad-gmap">
-                    <iframe src="'. $siteRegulars->location_map .'" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
         </div>
-    </div>
-
-
     ';
 }
 

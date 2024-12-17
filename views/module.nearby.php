@@ -3,64 +3,40 @@ $nearbydetail = $nearbydetail_modals= $imageList = $nearbybred = '';
 
 if (defined('HOME_PAGE')) {
     $recRows = Nearby::find_all_active();
-    // pr($recRow);
+    // pr($recRows,1);
     if (!empty($recRows)) {
 
         foreach($recRows as $recRow){
+            if($recRow->image != 'a:0:{}'){
+                $unserializedImage = unserialize($recRow->image);
 
-            // $imglink = BASE_URL . 'template/web/img/slider/2.jpg';
-            // if ($recRow->image != "a:0:{}") {
-            //     $imageList = unserialize($recRow->image);
-            //     $imgno = array_rand($imageList);
-            //     $file_path = SITE_ROOT . 'images/nearby/' . $imageList[$imgno];
-            //     if (file_exists($file_path)) {
-            //         $imglink = IMAGE_PATH . 'nearby/' . $imageList[$imgno];
-            //     }
-            // }
+                $file_path = SITE_ROOT . 'images/nearby/' . $unserializedImage[0];
+                if(file_exists($file_path)){
+                    $imgLink = IMAGE_PATH . 'nearby/' . $unserializedImage[0];
+                }else{
+                    $imgLink = BASE_URL . 'template/web/assets/images/attractions/ktm.jpg';
+                }
+            }
 
             $nearbydetail .= '
-            <div class="reservations mb-30">
-            <div class="row">
-                <div class="col-md-8 text">
-                    <p data-bs-toggle="modal" data-bs-target="#exampleModal' . $recRow->id . '">' . $recRow->sub_title . '</p>
-                       <!-- Button trigger modal -->';
+                <div class="col-lg-6 col-md-6">
+                    <div class="card rts__card no-border is__home__three">
+                        <div class="card-body mb-40">
+                            <div class="icon"><img src="'. $imgLink .'" alt="'. $recRow->title .'"></div>
+                            <a href="#" class="nearbyModalTrigger" aria-label="Sign Up Button" data-bs-toggle="modal" data-bs-target="#signupModal" data-content="'. strip_tags($recRow->content) .'" data-title="'. $recRow->title .'">
+                                <h6 class="card-title h6">'.$recRow->title.'</h6>
+                            </a>
+                            <p class="card-text nearbyDistance" data-src=\''. $recRow->linksrc .'\'>Distance: '. $recRow->distance .' <img src="'.BASE_URL.'template/web/assets/images/icon/arrow-right-short.svg" alt=""></p>
+                        </div>
+                    </div>
+                </div>
+            ';
             
-            $nearbydetail_modals.='
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal' . $recRow->id . '" tabindex="-1" aria-labelledby="exampleModalLabel' . $recRow->id . '" aria-hidden="true"
-                            style="z-index:100;">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" style="color:#000" id="exampleModalLabel' . $recRow->id . '">' . $recRow->sub_title . '</h5>
-                                        </div>
-                                        <div class="modal-body">
-                                        ' . $recRow->content . '
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-            ';
-
-            $nearbydetail.='
-                                </div>
-                                        <div class="col-md-4">
-                                            <p class="color-2">' . $recRow->distance . '</p>
-                                        </div>
-                                    </div>
-                                </div>
-            ';
-
         } 
     }
 }
-// pr($nearbydetail);
 
 
-$jVars['module:inner-nearby-detail'] = $nearbydetail;
-$jVars['module:inner-nearby-detail-modals'] = $nearbydetail_modals;
+$jVars['module:nearby-attractions'] = $nearbydetail;
 
 ?>

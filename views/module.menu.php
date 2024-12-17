@@ -28,7 +28,7 @@ if ($menuRec):
         $chkchild = !empty($menusubRec) ? '<span class="toggle"></span>' : '';
         $drop1 = !empty($menusubRec) ? '<span class="toggle"></span>' : '';
         $result .=  '<li class="'. $subclass .' ">';
-        $result .= getMenuList($menuRow->name, $menuRow->linksrc, $menuRow->linktype, $linkActive . $PlinkActive . $classLink, $chkchild);
+        $result .= getMenuList($menuRow->name, $menuRow->linksrc, $menuRow->linktype, $PlinkActive . $classLink, $chkchild);
         /* Second Level Menu */
         if ($menusubRec):
             $result .= '<ul class="slide__menu">';
@@ -178,15 +178,41 @@ $jVars['module:res-menu1'] = $result;
 $resfooter = '';
 $FmenuRec = Menu::getMenuByParent(0, 2);
 if ($FmenuRec):
-    $resfooter .= '<h3>Quick Link</h3><ul>';
+    $resfooter .= '
+        <span class="widget__title">Rooms</span>
+        <ul>
+    ';
 
     foreach ($FmenuRec as $FmenuRow):
         $resfooter .= '<li>';
-        $resfooter .= getMenuList($FmenuRow->name, $FmenuRow->linksrc, $FmenuRow->linktype, 'mad-text-link');
+        $resfooter .= getMenuFootList($FmenuRow->name, $FmenuRow->linksrc, $FmenuRow->linktype);
         $resfooter .= '</li>';
     endforeach;
     $resfooter .= '</ul>';
 endif;
+
+$jVars['module:footer-rooms-menu'] = $resfooter;
+
+
+
+$infoFooter = '';
+$footInfoMenuRec = Menu::getMenuByParent(0, 3);
+
+if ($FmenuRec):
+    $infoFooter .= '
+        <span class="widget__title">Information</span>
+        <ul>
+    ';
+
+    foreach ($FmenuRec as $FmenuRow):
+        $infoFooter .= '<li>';
+        $infoFooter .= getMenuFootList($FmenuRow->name, $FmenuRow->linksrc, $FmenuRow->linktype);
+        $infoFooter .= '</li>';
+    endforeach;
+    $infoFooter .= '</ul>';
+endif;
+
+$jVars['module:footer-information-menu'] = $infoFooter;
 
 
 

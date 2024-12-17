@@ -454,14 +454,14 @@
       cookiePopup: function (e) {
         $.gdprcookie.init();
       },
-      datePicker: function (e) {
+      /* datePicker: function (e) {
         $(function () {
           $("#check__in, #check__out").datepicker({
-              dateFormat: "dd-mm-yy",
+              dateFormat: "yy-mm-dd",
               duration: "fast"
           });
       });
-      },
+      }, */
       magnificPopup: function (e) {
         $('.gallery').each(function() { 
           $(this).magnificPopup({

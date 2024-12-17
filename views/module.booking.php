@@ -10,11 +10,44 @@ $chk_out = date('Y-m-d', strtotime("+1 day"));
 
 // Default Reservation
 if($booking_type==1) {
-    $resbking.='<div class="mad-form-col">
-    <a href="'.BASE_URL.'/reservation" class="book_now_btn" target="_blank"><button type="submit" class="btn btn-huge">
-            Book Now
-        </button></a>
-    </div>';
+    $resbking.='
+        <div class="rts__section advance__search__section is__home__one wow fadeInUp" data-wow-delay=\'.5s\'>
+        <div class="container">
+            <div class="row">
+                <form action="result.php" class="advance__search">
+                <input type="hidden" name="hotel_code" value="'. $booking_code .'">
+                    <div class="advance__search__wrapper wow fadeInUp">
+                        <!-- single input -->
+                        <div class="query__input">
+                            <label for="check__in" class="query__label">Check In</label>
+                            <input type="text" id="check__in" name="check__in" placeholder="15 Jun 2024" required>
+                            <div class="query__input__icon">
+                                <i class="flaticon-calendar"></i>
+                            </div>
+                        </div>
+                        <!-- single input end -->
+
+                        <!-- single input -->
+                        <div class="query__input">
+                            <label for="check__out" class="query__label">Check Out</label>
+                            <input type="text" id="check__out" name="check__out" placeholder="15 May 2024" required>
+                            <div class="query__input__icon">
+                                <i class="flaticon-calendar"></i>
+                            </div>
+                        </div>
+                        <!-- single input end -->
+
+                        <!-- submit button -->
+                        <button class="theme-btn btn-style fill no-border search__btn">
+                            <span>Check Availability</span>
+                        </button>
+                        <!-- submit button end -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    ';
 
     // Bottom link
     $resbtnlink.='<a class="book_now_btn" href="'.BASE_URL.'reservation" target="_blank">Reserve now</a>';  
@@ -22,44 +55,44 @@ if($booking_type==1) {
 
 // Nepalhotel 
 if($booking_type==2) {
-    $resbking.='<!--================ Layer ================-->
-    <div data-start="0" data-x="center"  data-y="center" data-textAlign="[\'center\']"  data-voffset="[\'120\', \'120\', \'120\', \'120\']"  data-width="[\'98%\', \'98%\', \'98%\', \'98%\']" class="tp-caption tp-resizeme home-book-btn">
-<div class="rev-mad-form">
-<form  action="result.php" target="_blank" action="rooms_2_col_gallery_v1.html" class="mad-form">
-        <input type="hidden" name="hotel_code" value="'. $booking_code .'">
-    <div class="mad-form-row">
-        <div class="mad-form-col">
-            <label>Arrival Date</label>
-            <div class="mad-datepicker">
-                <div class="mad-datepicker-body">
-                    <input type="text" class="form-control input " placeholder="Check in" id="checkin" name="hotel_check_in">
-                </div>
+    $resbking.='
+        <div class="rts__section advance__search__section is__home__one wow fadeInUp" data-wow-delay=\'.5s\'>
+        <div class="container">
+            <div class="row">
+                <form action="result.php" class="advance__search">
+                <input type="hidden" name="hotel_code" value="'. $booking_code .'">
+                    <div class="advance__search__wrapper wow fadeInUp">
+                        <!-- single input -->
+                        <div class="query__input">
+                            <label for="check__in" class="query__label">Check In</label>
+                            <input type="text" id="check__in" name="check__in" placeholder="15 Jun 2024" required>
+                            <div class="query__input__icon">
+                                <i class="flaticon-calendar"></i>
+                            </div>
+                        </div>
+                        <!-- single input end -->
 
-                
+                        <!-- single input -->
+                        <div class="query__input">
+                            <label for="check__out" class="query__label">Check Out</label>
+                            <input type="text" id="check__out" name="check__out" placeholder="15 May 2024" required>
+                            <div class="query__input__icon">
+                                <i class="flaticon-calendar"></i>
+                            </div>
+                        </div>
+                        <!-- single input end -->
+
+                        <!-- submit button -->
+                        <button class="theme-btn btn-style fill no-border search__btn">
+                            <span>Check Availability</span>
+                        </button>
+                        <!-- submit button end -->
+                    </div>
+                </form>
             </div>
-        </div>
-
-        <div class="mad-form-col">
-            <label>Departure Date</label>
-            <div class="mad-datepicker">
-                <div class="mad-datepicker-body">
-                    <input type="text" class="form-control input " placeholder="Check out" id="checkout" name="hotel_check_out">
-                </div>
-
-                
-            </div>
-        </div>
-
-
-        <div class="mad-form-col">
-        <a href="'.BASE_URL.'result.php?hotel_code='.$booking_code.'" class="book_now_btn" target="_blank"><button type="submit" class="btn btn-huge">
-                Book Now
-            </button></a>
         </div>
     </div>
-</form>
-</div>
-</div>';
+    ';
 
     // Bottom link
     $resbtnlink.='<a href="'.BASE_URL.'result.php?hotel_code='.$booking_code.'" class="book_now_btn" target="_blank">Reserve now</a>';

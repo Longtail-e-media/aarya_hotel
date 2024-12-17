@@ -2,20 +2,22 @@
 <html lang="zxx">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <jcms:site:seotitle/>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="description" content="Aarya Hotel & Spa">
+    <!-- <meta name="description" content="Aarya Hotel & Spa">
     <meta name="keywords" content="hotel, resort, Spa">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow"> -->
     <!-- for open graph social media -->
-    <meta property="og:title" content="Hotel and Resort">
-    <meta property="og:description" content="Aarya Hotel & Spa">
+    <!-- <meta property="og:title" content="Hotel and Resort">
+    <meta property="og:description" content="Aarya Hotel & Spa"> -->
     <!-- for twitter sharing -->
-    <meta name="twitter:card" content="summary_large_image">
+    <!-- <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Hotel and Resort">
-    <meta name="twitter:description" content="Aarya Hotel & Spa">
+    <meta name="twitter:description" content="Aarya Hotel & Spa"> -->
     <!-- favicon -->
-    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
+    <!-- <link rel="icon" href="assets/images/favicon.png" type="image/x-icon"> -->
+     <jcms:site:favicon/>
     <!-- title -->
      <title>Aarya Hotel & Spa - Traditional Charm with Modern Comfort</title>
 
@@ -33,30 +35,7 @@
 
 <body>
     <!-- header area -->
-    <div class="header__absolute">
-        <header class="main__header header__function is__home__two">
-            <div class="container-fluid px-5">
-                <div class="row">
-                    <div class="main__header__wrapper">
-                        <div class="main__nav">
-                            <button class="main__nav__toogler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                                <img src="assets/images/menu.png">
-                            </button>
-                        </div>
-                        <div class="main__logo">
-                            <a href="index.html"><img class="logo__class" src="assets/images/logo.png" width="108" height="100" alt="Aarya Hotel & Spa"></a>
-                        </div>
-                        <div class="main__right">
-                            <a href="#" class="theme-btn btn-style sm-btn fill"><span>Book</span></a>
-                            <button class="theme-btn btn-style sm-btn fill menu__btn d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                                <span><img src="assets/images/icon/menu-icon.svg" alt=""></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-    </div>
+    <jcms:module:header/>
     <!-- header area end -->
 
     <!-- page header -->
@@ -75,217 +54,15 @@
     <!-- page header end -->
 
     <!-- contact area -->
-    <div class="rts__section section__padding pillar-icon" style="background: #f8f2e2;">
-        <div class="section__shape">
-            <img src="assets/images/pillar.png" alt="">
-        </div>
-        <div class="container px-5">
-            <div class="row g-30 align-items-center">
-                <div class="col-lg-6">
-                    <div class="rts__contact">
-                        <span class="h5 d-block mb-30">Love to hear from you<br/>
-                            Get in touch!</span><br/>
-                        <form action="enquery_mail.php" method="post" class="rts__contact__form" id="frm_contact">
-                            <div class="form-input">
-                                <label for="name">Your Name</label>
-                                <div class="pr">
-                                    <input type="text" id="name" name="name" placeholder="Your Name" required>
-                                    <i class="flaticon-user"></i>
-                                </div>
-                            </div>
-                            <div class="form-input">
-                                <label for="email">Your Email</label>
-                                <div class="pr">
-                                    <input type="email" id="email" name="email" placeholder="Your Email" required>
-                                    <i class="flaticon-envelope"></i>
-                                </div>
-                            </div>
-
-                            <div class="form-input">
-                                <label for="email">Your Address</label>
-                                <div class="pr">
-                                    <input type="text" id="address" name="address" placeholder="Your Address" required>
-                                    <i class="flaticon-marker"></i>
-                                </div>
-                            </div>
-
-                            <div class="form-input">
-                                <label for="email">Your Phone No.</label>
-                                <div class="pr">
-                                    <input type="number" id="Phone" name="phone" placeholder="Your Phone" required>
-                                    <i class="flaticon-phone-flip"></i>
-                                </div>
-                            </div>
-
-                            <div class="form-input">
-                                <label for="msg">Your Message</label>
-                                <div class="pr">
-                                    <textarea id="msg" name="message" placeholder="Message" required></textarea>
-                                    <img src="assets/images/icon/message.svg" width="20" height="20" alt="">
-                                </div>
-                            </div>
-                            <button type="submit" class="theme-btn btn-style fill w-100"><span>Send Message</span></button>
-                        </form>
-                        <div class="mt-20" id="result_msg" ></div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="contact__map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7064.161174367443!2d85.310651!3d27.714798!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18fcfd02fceb%3A0x121951cd31a52c6f!2sNarsingh%20Chowk%20Marg%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1729484602607!5m2!1sen!2snp" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <jcms:module:contact-us/>
     <!-- contact area end -->
 
     <!-- footer style one -->
-    <footer class="rts__section rts__footer is__common__footer footer__background">
-        <div class="container-fluid px-5">
-            <hr style="padding-bottom: 80px;color: #000;">
-            <div class="row">
-                <div class="footer__newsletter">
-                    <div class="rts__widget mb-40">
-                        <a href="index.html"><img class="footer__logo text-center" src="assets/images/logo-footer.png" alt="footer logo" width="149" height="138"></a>
-                    </div>
-                    <span class="h4 mb-40"> Get the latest updates<br/> Subscribe now!</span>
-                    <div class="rts__form mt-4">
-                        <form action="#" method="post">
-                            <input type="email" name="email" id="subscription" placeholder="Enter Email address" required>
-                            <button type="submit">Sign up now</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="footer__widget__wrapper">
-                    <div class="rts__widget">
-                        <span class="widget__title">Contact Us</span>
-                        <ul>
-                            <li>Narsingha Chowk, Thamel, Kathmandu, Nepal</li>
-                            <li>Tel.:<a aria-label="footer__contact" href="tel:098765432"> 098765432</a> , <a aria-label="footer__contact" href="tel:0913479302"> 0913479302</a></li>
-                            <li>Email:<a aria-label="footer__contact" href="mailto:info@aaryahotel.com"> info@aaryahotel.com</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="rts__widget">
-                        <span class="widget__title">Rooms</span>
-                        <ul>
-                            <li><a href="#" aria-label="footer__link">Suite Room</a></li>
-                            <li><a href="#" aria-label="footer__link">Executive Room</a></li>
-                            <li><a href="#" aria-label="footer__link">Deluxe Room</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="rts__widget">
-                        <span class="widget__title">Information</span>
-                        <ul>
-                            <li><a href="#" aria-label="footer__link">About Hotel</a></li>
-                            <li><a href="#" aria-label="footer__link">Dining and Bar</a></li>
-                            <li><a href="#" aria-label="footer__link">Spa and Sauna</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="rts__widget">
-                        <span class="widget__title">Reviews</span>
-                        <div class="position-relative  wow fadeInUp animated text-left" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
-                            <h6 class="mb-1">4.9 out of 5</h6>
-                            <div class="de-rating-ext fs-18" style="background-size: cover; background-repeat: no-repeat;">
-                                <span class="d-stars" style="color:#F2B827;">
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                </span>
-                            </div>
-                            <span class="d-block fs-14 mb-0" style="font-size:14px;">Based on 25000+ reviews</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright__text">
-            <div class="container-fluid px-5">
-                <div class="row">
-                    <div class="copyright__wrapper">
-                        <p class="mb-0">© Copyright 2024. All Rights Reserved. Developed by <a href="https://www.longtail.info/" target="_blank">Longtail e-media</a>. For further detail information contact us at <a href="mailto:info@aaryahotel.com">info@aaryahotel.com</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <jcms:module:footer/>
     <!-- footer style one end -->
 
     <!-- offcanvase menu -->
-    <div class="offcanvas offcanvas-start" id="offcanvasRight">
-        <div class="rts__btstrp__offcanvase">
-            <div class="offcanvase__wrapper">
-                <div class="left__side mobile__menu">
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    <div class="offcanvase__top">
-                        <div class="offcanvase__logo">
-                            <a href="index.html">
-                                <img src="assets/images/logo.png" width="108" alt="logo">
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="rts__desktop__menu">
-                        <nav class="desktop__menu offcanvas__menu">
-                            <ul class="list-unstyled">
-                                <li class="slide">
-                                    <a class="slide__menu__item" href="index.html">Home
-                                    </a>
-                                </li>
-                                <li class="slide">
-                                    <a class="slide__menu__item" href="about.html">About us
-                                    </a>
-                                </li>
-                                <li class="slide has__children">
-                                    <a class="slide__menu__item" href="rooms.html">Rooms
-                                        <span class="toggle"></span>
-                                    </a>
-                                    <ul class="slide__menu">
-                                        <li><a href="package.html">Deluxe Room</a></li>
-                                        <li><a href="package.html">Presidential Suite</a></li>
-                                        <li><a href="package.html">Junior Suite</a></li>
-                                        <li><a href="package.html">Executive Room</a></li>
-                                    </ul>
-                                </li>
-                                <li class="slide">
-                                    <a class="slide__menu__item" href="hall.html">Hall
-                                    </a>
-                                </li>
-                                <li class="slide">
-                                    <a class="slide__menu__item" href="dine.html">Restaurant
-                                    </a>
-                                </li>
-                                <li class="slide">
-                                    <a class="slide__menu__item" href="facility.html">Facilities
-                                    </a>
-                                </li>
-                                <li class="slide">
-                                    <a class="slide__menu__item" href="gallery.html">Gallery
-                                    </a>
-                                </li>
-                                <li class="slide">
-                                    <a class="slide__menu__item" href="contact.html">Contact
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="offcanvase__mobile__menu">
-                        <div class="mobile__menu__active"></div>
-                    </div>
-                </div>
-                <div class="right__side desktop__menu">
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <jcms:module:off-canvas-menu/>
     <!-- offcanvase menu end -->
 
     <!-- back to top -->
@@ -303,6 +80,7 @@
     <script src="assets/js/gdpr.js"></script>
     <!-- custom js -->
     <script src="assets/js/main.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
     
     <script type="text/javascript">
         $(document).ready(function () {

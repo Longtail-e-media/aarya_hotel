@@ -9,7 +9,7 @@ class Config extends DatabaseObject
         'sitename', 'location_type', 'location_map', 'location_image', 'fiscal_address', 'mail_address', 'contact_info', 'address', 'email_address', 'breif',
         'copyright', 'meta_title', 'site_keywords', 'site_description', 'google_anlytics', 'fb_messenger', 'book_type', 'hotel_code', 'booking_code', 'hotel_page',
         'template', 'admin_template', 'headers', 'footer', 'search_box', 'robot_txt', 'schema_code', 'search_result', 'action', 'linksrc', 'contact_info2', 'pobox',
-        'pixel_code', 'whatsapp_a', 'whatsapp');
+        'pixel_code', 'whatsapp_a', 'whatsapp','second_logo');
 
     public $id;
     public $sitetitle;
@@ -26,6 +26,7 @@ class Config extends DatabaseObject
     public $copyright;
     public $icon_upload;
     public $logo_upload;
+    public $second_logo;
     public $logo;
     public $schema_code;
     public $fb_upload;

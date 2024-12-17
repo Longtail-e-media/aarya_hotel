@@ -67,7 +67,7 @@ class Menu extends DatabaseObject {
 		$sql1  = "SELECT id, name, type FROM tbl_menu WHERE parentOf='0' ORDER BY sortorder ASC";
 		$result='';
 		$menuRec1 = self::find_by_sql($sql1);
-		$position = array(1=>'Top Menu', 2=>'Footer Menu');
+		$position = array(1=>'Top Menu', 2=>'Footer Room Menu',3=>'Footer Information Menu');
 		
 		$result.='<select data-placeholder="None" class="chosen-select" id="parentOf" name="parentOf">';
 		$result.='<option value="0">None</option>';

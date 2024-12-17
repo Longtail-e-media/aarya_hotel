@@ -90,6 +90,7 @@
             $record->other_upload       = (!empty($_REQUEST['imageArrayname7'])) ? $_REQUEST['imageArrayname7'] : '';
             $record->facility_upload    = (!empty($_REQUEST['imageArrayname8'])) ? $_REQUEST['imageArrayname8'] : '';
             $record->offer_upload       = (!empty($_REQUEST['imageArrayname9'])) ? $_REQUEST['imageArrayname9'] : '';
+            $record->second_logo       = (!empty($_REQUEST['imageArrayname11'])) ? $_REQUEST['imageArrayname11'] : '';
 
 			$db->begin();
 			if($record->save()):$db->commit();

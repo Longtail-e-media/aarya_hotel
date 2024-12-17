@@ -31,9 +31,9 @@
 			
 			$record->slug 		= $_REQUEST['slug'];
 			$record->title 		= $_REQUEST['title'];
-			$record->sub_title 		= $_REQUEST['sub_title'];
+			// $record->sub_title 		= $_REQUEST['sub_title'];
 			$record->image		= serialize(array_values(array_filter($_REQUEST['imageArrayname'])));		
-//			$record->linksrc 	= $_REQUEST['linksrc'];
+			$record->linksrc 	= $_REQUEST['linksrc'];
 //			$record->linktype 	= $_REQUEST['linktype'];
 			$record->content	= $_REQUEST['content'];
 			$record->status		= $_REQUEST['status'];
@@ -80,9 +80,9 @@
 			
 			$record->slug 		= $_REQUEST['slug'];
 			$record->title 		= $_REQUEST['title'];
-			$record->sub_title 		= $_REQUEST['sub_title'];
+			// $record->sub_title 		= $_REQUEST['sub_title'];
 			$record->image		= serialize(array_values(array_filter($_REQUEST['imageArrayname'])));	
-//			$record->linksrc 	= $_REQUEST['linksrc'];
+			$record->linksrc 	= $_REQUEST['linksrc'];
 //			$record->linktype 	= $_REQUEST['linktype'];
 			$record->content	= $_REQUEST['content'];
 			$record->status		= $_REQUEST['status'];

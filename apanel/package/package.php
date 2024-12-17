@@ -238,9 +238,9 @@ if (isset($_GET['page']) && $_GET['page'] == "package" && isset($_GET['mode']) &
                         </label>
                         <textarea name="content" id="content"
                                   class="large-textarea validate[required]"><?php echo !empty($packageInfo->content) ? $packageInfo->content : ""; ?></textarea>
-                        <!-- <a class="btn medium bg-orange mrg5T" title="Read More" id="readMore" href="javascript:void(0);">
+                        <a class="btn medium bg-orange mrg5T" title="Read More" id="readMore" href="javascript:void(0);">
                             <span class="button-content">Read More</span>
-                        </a> -->
+                        </a>
                     </div>
                 </div>
 

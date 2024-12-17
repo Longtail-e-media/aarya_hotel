@@ -125,7 +125,7 @@ if (isset($_GET['page']) && $_GET['page'] == "nearby" && isset($_GET['mode']) &&
                                value="<?php echo !empty($articlesInfo->title) ? $articlesInfo->title : ""; ?>">
                     </div>
                 </div>
-                <div class="form-row">
+                <!-- <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">
                             Sub Title :
@@ -136,7 +136,7 @@ if (isset($_GET['page']) && $_GET['page'] == "nearby" && isset($_GET['mode']) &&
                                name="sub_title" id="sub_title"
                                value="<?php echo !empty($articlesInfo->sub_title) ? $articlesInfo->sub_title : ""; ?>">
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-row">
                     <div class="form-label col-md-2">
@@ -229,7 +229,7 @@ if (isset($_GET['page']) && $_GET['page'] == "nearby" && isset($_GET['mode']) &&
                                onClick="linkTypeSelect(1);" <?php echo !empty($external) ? $external : ""; ?>>
                         <label for="">External Link</label>
                     </div>
-                </div>
+                </div>-->
 
                 <div class="form-row">
                     <div class="form-label col-md-2">
@@ -242,7 +242,7 @@ if (isset($_GET['page']) && $_GET['page'] == "nearby" && isset($_GET['mode']) &&
                             <input placeholder="Link" class="" type="text" name="linksrc" id="linksrc"
                                    value="<?php echo !empty($articlesInfo->linksrc) ? $articlesInfo->linksrc : ""; ?>">
                         </div>
-                        <div class="col-md-6" style="padding-left:0px !important;">
+                        <!-- <div class="col-md-6" style="padding-left:0px !important;">
                             <select data-placeholder="Select Link Page" class="col-md-4 chosen-select" id="linkPage">
                                 <option value=""></option>
                                 <?php
@@ -252,9 +252,9 @@ if (isset($_GET['page']) && $_GET['page'] == "nearby" && isset($_GET['mode']) &&
                                 // echo Nearby::get_internal_link($Lpageview, $LinkTypeview);
                                 ?>
                             </select>
-                        </div>
+                        </div> -->
                     </div>
-                </div>-->
+                </div>
                 <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">Distance :</label>

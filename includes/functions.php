@@ -476,11 +476,7 @@ function getMenuFootList($caption="", $link="", $type=0, $class="",$nicon=""){
 	$idLink 	= ($id == '') ? '' : ' id="'.$id.'"';
 	$linkType	= ($type == 0) ? '' : ' target="_blank"';
 	$linkhref	= ($type == 0) ? BASE_URL.$link : $link;
-	return "<a href=\"".$linkhref."\" ".$classLink.$idLink.$linkType.$dropclass." >
-	<div class=\"link-container\">
-	<span class=\"link-title1 title\">".$caption.$nicon."</span>
-	<span class=\"link-title2 title\">".$caption.$nicon."</span>
-</div></a>";
+	return "<a href=\"".$linkhref."\" ".$classLink.$linkType.$dropclass." aria-label=\"footer__link\">". $caption ."</a>";
 }
 /*function getMenuList($caption="", $link="", $type=0, $htag="0", $class=""){
 	$classLink 	= ($class == '') ? '' : 'class="'.$class.'"';

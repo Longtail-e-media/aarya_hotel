@@ -9576,6 +9576,8 @@ hr{
   display: flex;
   gap: 30px;
   align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
   font-size: 17px;
   color: var(--rts-para);
   font-family: var(--jost);

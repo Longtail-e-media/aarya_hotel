@@ -6,7 +6,8 @@ $rescont = $ressercont = '';
 $i = 0;
 $j = 0;
 $subpkgRec = Services::getservice_list(4);
-// var_dump($subpkgRec); die();
+
+// pr($subpkgRec,1);
 if (!empty($subpkgRec)) {
 
     foreach ($subpkgRec as $k => $v) {
@@ -18,25 +19,14 @@ if (!empty($subpkgRec)) {
                 $imglink = IMAGE_PATH . 'services/' . $imageList[0];
             }
         }
-        $actv = ($i == 0) ? 'active' : '';
-        $rescont .= '<li class="' . $actv . '">
-                                            <a href="#coffe-shop' . $v->id . '" data-toggle="tab">
-                                                <img src="' . $imglink . '">
-                                                <h4>' . $v->title . '</h4>
-                                            </a>
-                                        </li>';
-        $i++;
-    }
-
-    foreach ($subpkgRec as $k => $v) {
-        $content = explode('<hr id="system_readmore" style="border-style: dashed; border-color: orange;" />', trim($v->content));
-        $actv1 = ($j == 0) ? 'active' : '';
-        $ressercont .= '<div role="tabpanel" class="tab-pane fade in ' . $actv1 . '" id="coffe-shop' . $v->id . '">
-                     
-                                <p>' . substr(strip_tags($content[0]), 0, 300) . '
-                                <br><a href="' . BASE_URL . 'service/' . $v->slug . '" title="">Read More</a></p>
-                            </div>';
-        $j++;
+        $rescont .= '
+            <div class="service__item">
+                <div class="service__item__icon">
+                    <img src="'. $imglink .'" alt="'. $v->title .'" >
+                </div>
+                <p class="h6">'. $v->title .'</p>
+            </div>
+        ';
     }
 }
 

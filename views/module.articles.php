@@ -35,7 +35,7 @@ $resinnh = '';
 if (defined('HOME_PAGE')) {
     $recInn = Article::homepageArticle();
 
-    $restst = $ratingStars = '';   
+    $ratingStars = '';   
     $tstRec = Testimonial::get_alltestimonial(9);
     // pr($tstRec,1);
     $totalTestimonial = 0;
@@ -111,50 +111,106 @@ $aboutdetail = $imageList = $aboutbred = '';
 if (defined('INNER_PAGE') and isset($_REQUEST['slug'])) {
     $slug = addslashes($_REQUEST['slug']);
     $recRow = Article::find_by_slug($slug);
+    // pr($recRow,1);
 
     if (!empty($recRow)) {
 
-        $imglink = BASE_URL . 'template/web/images/default.jpg';
-        if ($recRow->image != "a:0:{}") {
-            $imageList = unserialize($recRow->image);
-            $imgno = array_rand($imageList);
-            $file_path = SITE_ROOT . 'images/articles/' . $imageList[$imgno];
-            if (file_exists($file_path)) {
-                $imglink = IMAGE_PATH . 'articles/' . $imageList[$imgno];
+        // $imglink = BASE_URL . 'template/web/images/default.jpg';
+        // if ($recRow->image != "a:0:{}") {
+        //     $imageList = unserialize($recRow->image);
+        //     $imgno = array_rand($imageList);
+        //     $file_path = SITE_ROOT . 'images/articles/' . $imageList[$imgno];
+        //     if (file_exists($file_path)) {
+        //         $imglink = IMAGE_PATH . 'articles/' . $imageList[$imgno];
+        //     }
+        //     else{
+        //         $imglink = BASE_URL . 'template/web/images/default.jpg';
+        //     }
+        // }
+
+        $ratingStars = '';   
+        $tstRec = Testimonial::get_alltestimonial(9);
+        // pr($tstRec,1);
+        $totalTestimonial = 0;
+        $totalRating = 0;
+        if (!empty($tstRec)) {
+            $totalTestimonial = sizeof($tstRec);
+            foreach ($tstRec as $tstRow) {
+                $totalRating += intval($tstRow->rating);
             }
-            else{
-                $imglink = BASE_URL . 'template/web/images/default.jpg';
-            }
+            
+            $avgRating = round(($totalRating / $totalTestimonial),1);
         }
-        
-        $innerbred .= '
-        <!--================ Breadcrumb ================-->
-        <div class="mad-breadcrumb with-bg-img with-overlay" data-bg-image-src="' . $imglink . '">
-            <div class="container wide">
-                <h1 class="mad-page-title">' . $recRow->title . '</h1>
-                <nav class="mad-breadcrumb-path">
-                    <span><a href="home" class="mad-link">Home</a></span> /
-                    <span>' . $recRow->title . '</span>
-		                    </nav>
+        for($i = 0; $i < ceil($avgRating); $i++){
+            $ratingStars .= '
+            <i class="flaticon-star checked"></i>
+            ';
+        }
+        for($i = 0; $i < (5-ceil($avgRating)); $i++){
+            $ratingStars .= '
+                <i class="flaticon-star"></i>
+            ';
+        }
+
+        $ratings ='
+            <div class="position-relative  wow fadeInUp animated text-center" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <h6 class="mb-1">'. $avgRating .' out of 5</h6>
+                <div class="de-rating-ext fs-18" style="background-size: cover; background-repeat: no-repeat;">
+                    <span class="d-stars">
+                        '. $ratingStars .'
+                    </span>
+                </div>
+                <span class="d-block fs-14 mb-0">Based on '.$totalTestimonial.'+ reviews</span>
             </div>
-        </div>
-
-        <!--================ End of Breadcrumb ================-->
         ';
+        
+       if($recRow->id == 17) {
+            $aboutdetail = '
+                <div class="container">
+                    <div class="row">
+                        <div class="about__wrapper">
+                            <div class="content">
+                                <span class="h6  d-block wow fadeInUp">Welcome To Aarya hotel & spa</span>
+                                <h2 class="content__title wow fadeInUp">'. $recRow->sub_title .'</h2>
+                                <p class="content__subtitle wow fadeInUp">'. preg_replace('/<\/?p>/','',$recRow->content) .'</p>
+                            </div>
 
-        $rescontent = explode('<hr id="system_readmore" style="border-style: dashed; border-color: orange;" />', trim($recRow->content));
-        $content = !empty($rescontent[1]) ? $rescontent[1] : $rescontent[0];
-
-        $aboutdetail .= 
-        '<div class="mad-content no-pd">
-            <div class="container">
-                <div class="mad-section">
-                    <div class="mad-entities mad-entities-reverse type-4">
-                    '. $content.' 
+                            <div class="image ">
+                                '. $ratings .'
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>';
+                
+                <div class="container-fluid px-5">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="'. BASE_URL .'template/web/assets/images/about/2.webp" alt="about us image" class="mt-6">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="'. BASE_URL .'template/web/assets/images/about/3.webp" alt="about us image" class="mt-7">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="'. BASE_URL .'template/web/assets/images/about/6.webp" alt="about us image" class="mt-4">
+                        </div>
+                    </div>
+                </div>
+            ';
+        }else{
+            $aboutdetail = '
+                <div class="container">
+                    <div class="row">
+                        <div class="about__wrapper">
+                            <div class="content">
+                                <h2 class="content__title wow fadeInUp">'. $recRow->sub_title .'</h2>
+                                <p class="content__subtitle wow fadeInUp">'. preg_replace('/<\/?p>/','',$recRow->content) .'</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ';
+        }
+         
 
     } else {
         redirect_to(BASE_URL);

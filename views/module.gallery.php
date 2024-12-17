@@ -1,26 +1,29 @@
 <?php
 $reslgall = '';
 
-$gallRec = Gallery::getParentgallery(2);
+$gallRec = Gallery::getParentgallery();
+// pr($gallRec,1);
 if (!empty($gallRec)) {
-foreach ($gallRec as $gallRow) {
-$childRec = GalleryImage::getGalleryImages($gallRow->id);
-if (!empty($childRec)) {
-$reslgall .= '';
-foreach ($childRec as $childRow) {
-$file_path = SITE_ROOT . 'images/gallery/galleryimages/' . $childRow->image;
-if (file_exists($file_path) and !empty($childRow->image)) {
-    $reslgall .= '
-                <div class="gallery-image">
-                    <img src="' . IMAGE_PATH . 'gallery/galleryimages/' . $childRow->image . '" alt="' . $childRow->title . '">
-                </div>
-                    ';
+    foreach ($gallRec as $gallRow) {
+    $childRec = GalleryImage::getGalleryImages($gallRow->id);
+        if (!empty($childRec)) {
+        $reslgall .= '';
+            foreach ($childRec as $childRow) {
+            $file_path = SITE_ROOT . 'images/gallery/galleryimages/' . $childRow->image;
+                if (file_exists($file_path) and !empty($childRow->image)) {
+                    $reslgall .= '
+                            <div class="col-md-4 images" data-class="'. $gallRow->title .'" data-src="'. IMAGE_PATH .'gallery/galleryimages/'. $childRow->image .'" style="display: block;">
+                                <img src="'. IMAGE_PATH .'gallery/galleryimages/'. $childRow->image .'" alt="'. $gallRow->title .'">
+                            </div>
+                        ';
+                }
+            }
+        $reslgall .= '';
+        }
+    }
 }
-}
-$reslgall .= '';
-}
-}
-}
+
+$jVars['module:gallery-images'] = $reslgall;
 
 $res_gallery = '
                 <!-- Gallery starts -->
@@ -91,9 +94,10 @@ $gallRectit = Gallery::getParentgallery();
 
 if ($gallRectit) {
     $thegal .= '';
+    $thegalnav .= '<li class="col-md active" data-class="all">ALL</li>';
     foreach ($gallRectit as $row) {
         $thegalnav .= '
-        <li class="col-md" data-class="' . $row->id . '">' . $row->title . '</li>';
+        <li class="col-md" data-class="'. $row->title .'">'. $row->title .'</li>';
     }
     $thegal .= '';
 

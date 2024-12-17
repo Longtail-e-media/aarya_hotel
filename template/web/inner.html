@@ -19,7 +19,7 @@
     <!-- <link rel="icon" href="assets/images/favicon.png" type="image/x-icon"> -->
      <jcms:site:favicon/>
     <!-- title -->
-    <title>Aarya Hotel & Spa - Traditional Charm with Modern Comfort</title>
+     <title>Aarya Hotel & Spa - Traditional Charm with Modern Comfort</title>
 
     <!-- google fonts -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,6 @@
     <link rel="stylesheet" href="assets/css/plugins.min.css">
     <!-- main style custom css -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/lightgallery.min.css">
 </head>
 
 <body>
@@ -45,8 +44,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-12">
                     <div class="page__hero__content mt-120 pt-30">
-                        <h3 class="wow fadeInUp">Gallery</h3>
-                        <p class="px-5 max-750" style="color: #744920de;margin: auto;">The ambiance is likely to be sophisticated yet relaxed, with soft lighting and tasteful décor that harmonizes with the stunning views.</p>
+                        <h3 class="wow fadeInUp">About Us</h3>
                     </div>
                 </div>
             </div>
@@ -54,28 +52,15 @@
     </div>
     <!-- page header end -->
 
-    <!-- gallery -->
-    <div class="rts__section section__padding" style="background: #f8f2e2;">
-        <div class="container-fluid gallery-page1 px-5">
-            <section class="main text-center">
-                <div class="container">
-                    <ul class="list-unstyled row gallery-ul">
-                        <jcms:module:gallery-nav/>
-                    </ul>
-                </div>
-
-                <div class="container-fluid" id="gallery">
-                            
-                    <jcms:module:gallery-images/>
-
-                </div>
-            </section>
+    <!-- about us -->
+    <div class="rts__section about__area is__home__two section__padding" style="background: #f8f2e2;">
+        <div class="section__shape">
+            <img src="assets/images/pillar.png" alt="">
         </div>
-
+        <jcms:module:inner-about-detail/>
     </div>
-    <!-- gallery end -->
-    
-    
+    <!-- about us end -->
+
     <!-- footer style one -->
     <jcms:module:footer/>
     <!-- footer style one end -->
@@ -98,17 +83,5 @@
     <script src="assets/js/gdpr.js"></script>
     <!-- custom js -->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/function.js"></script>
-
-    <!-- lightgallery plugins -->
-    <script src="assets/js/lightgallery.min.js"></script>
-    <script src="assets/js/lg-share.min.js"></script>
-    <script src="assets/js/lg-fullscreen.min.js"></script>
-    <script src="assets/js/lg-zoom.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#gallery").lightGallery();
-        });
-    </script>
 </body>
 </html>
