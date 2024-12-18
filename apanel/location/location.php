@@ -26,7 +26,7 @@ $unstatus = ($locationRow->location_type == 0) ? "checked" : " "; ?>
                            value="<?php echo !empty($locationRow->fiscal_address) ? $locationRow->fiscal_address : ""; ?>">
                 </div>
             </div>
-            <div class="form-row">
+            <!-- <div class="form-row">
                 <div class="form-label col-md-2">
                     <label for="">
                         Ktm Address :
@@ -36,19 +36,19 @@ $unstatus = ($locationRow->location_type == 0) ? "checked" : " "; ?>
                     <input placeholder="Mail Address" class="col-md-6" type="text" name="mail_address" id="mail_address"
                            value="<?php echo !empty($locationRow->mail_address) ? $locationRow->mail_address : ""; ?>">
                 </div>
-            </div>
+            </div> -->
             
-            <div class="form-row">
+            <!-- <div class="form-row">
                 <div class="form-label col-md-2">
                     <label for="">
-                    Ktm Contact Info :
+                    Contact Info :
                     </label>
                 </div>                
                 <div class="form-input col-md-20">
                     <input placeholder="Whatsapp" class="col-md-6" type="text" name="whatsapp" id="whatsapp" value="<?php echo !empty($locationRow->whatsapp)?$locationRow->whatsapp:"";?>">
                 </div>                
-            </div>
-             <div class="form-row">
+            </div> -->
+             <!-- <div class="form-row">
                 <div class="form-label col-md-2">
                     <label for="">
                     KTM E-mail  :
@@ -58,7 +58,7 @@ $unstatus = ($locationRow->location_type == 0) ? "checked" : " "; ?>
                     <input placeholder="Google Map Link" class="col-md-6" type="text" name="contact_info2" id="contact_info2"
                            value="<?php echo !empty($locationRow->contact_info2) ? $locationRow->contact_info2 : ""; ?>">
                 </div>
-            </div>
+            </div> -->
             <div class="form-row">
                 <div class="form-label col-md-2">
                     <label for="">
@@ -70,7 +70,7 @@ $unstatus = ($locationRow->location_type == 0) ? "checked" : " "; ?>
                            value="<?php echo !empty($locationRow->contact_info) ? $locationRow->contact_info : ""; ?>">
                 </div>
             </div>
-            <div class="form-row">
+            <!-- <div class="form-row">
                 <div class="form-label col-md-2">
                     <label for="">
                     Phone :
@@ -80,8 +80,8 @@ $unstatus = ($locationRow->location_type == 0) ? "checked" : " "; ?>
                     <input placeholder="Address" class="col-md-6" type="text" name="address" id="address"
                            value="<?php echo !empty($locationRow->address) ? $locationRow->address : ""; ?>">
                 </div>
-            </div>
-            <div class="form-row">
+            </div> -->
+            <!-- <div class="form-row">
                 <div class="form-label col-md-2">
                     <label for="">
                     P.O Box:
@@ -91,7 +91,7 @@ $unstatus = ($locationRow->location_type == 0) ? "checked" : " "; ?>
                     <input placeholder="P.O Box" class="col-md-6" type="text" name="pobox" id="pobox"
                            value="<?php echo !empty($locationRow->pobox) ? $locationRow->pobox : ""; ?>">
                 </div>
-            </div>
+            </div> -->
             <div class="form-row">
                 <div class="form-label col-md-2">
                     <label for="">
@@ -180,7 +180,7 @@ $unstatus = ($locationRow->location_type == 0) ? "checked" : " "; ?>
                 <div id="preview_Image"><input type="hidden" name="imageArrayname" value="" class=""/></div>
             </div>
 
-            <div class="form-row">
+            <!-- <div class="form-row">
                 <div class="form-label col-md-12">
                     <label for="">
                         Breif :
@@ -188,7 +188,7 @@ $unstatus = ($locationRow->location_type == 0) ? "checked" : " "; ?>
                     <textarea name="breif" id="breif"
                               class="large-textarea"><?php echo !empty($locationRow->breif) ? $locationRow->breif : ""; ?></textarea>
                 </div>
-            </div>
+            </div> -->
 
             <button type="submit" name="submit"
                     class="btn large primary-bg text-transform-upr font-bold font-size-11 radius-all-4" id="btn-submit"

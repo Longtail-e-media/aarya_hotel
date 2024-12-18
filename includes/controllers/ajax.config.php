@@ -110,17 +110,17 @@
 			$record = Config::find_by_id($_REQUEST['idValue']);
 			
 			$record->fiscal_address = $_REQUEST['fiscal_address'];
-			$record->address = $_REQUEST['address'];
-			$record->mail_address 	= $_REQUEST['mail_address'];
+			// $record->address = $_REQUEST['address'];
+			// $record->mail_address 	= $_REQUEST['mail_address'];
 			$record->contact_info 	= $_REQUEST['contact_info'];
-			$record->contact_info2 			= $_REQUEST['contact_info2'];
-			$record->pobox 			= $_REQUEST['pobox'];
+			// $record->contact_info2 			= $_REQUEST['contact_info2'];
+			// $record->pobox 			= $_REQUEST['pobox'];
 			$record->email_address 	= $_REQUEST['email_address'];
-			$record->breif 			= $_REQUEST['breif'];
+			// $record->breif 			= $_REQUEST['breif'];
 			$record->location_type 	= $_REQUEST['location_type'];					
 			$record->location_map 	= $_REQUEST['location_map'];
 
-			$record->whatsapp		= $_REQUEST['whatsapp'];	
+			// $record->whatsapp		= $_REQUEST['whatsapp'];	
 			$record->whatsapp_a		= $_REQUEST['whatsapp_a'];	
 
 

@@ -35,7 +35,7 @@ if (defined('HOME_PAGE')) {
                     <div class="room__card is__style__four">
                         <div class="room__card__top">
                             <div class="room__card__image">
-                                <a href="#">
+                                <a href="'. $pkgRec->slug .'">
                                     <img src="'. $imgLink .'" width="645" height="438" alt="room card">
                                 </a>
                             </div>
@@ -47,7 +47,7 @@ if (defined('HOME_PAGE')) {
 
         $content = explode('<hr id="system_readmore" style="border-style: dashed; border-color: orange;" />', trim($pkgRec->content));
         $homeRooms .= '
-            <div class="tab-pane fade show active" id="all" role="tabpan    el" aria-labelledby="all">
+            <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all">
                 <div class="room__card is__style__four">
                     <div class="row">
                         <div class="col-md-6">
@@ -67,7 +67,7 @@ if (defined('HOME_PAGE')) {
 
                         <div class="col-md-6">
                             <div class="room__card__meta">
-                                <a href="#" class="room__card__title h4">'. $pkgRec->title .'</a>
+                                <a href="'. $pkgRec->slug .'" class="room__card__title h4">'. $pkgRec->title .'</a>
                                 '. $content[0] .'
                             </div>
                         </div>
@@ -103,7 +103,7 @@ if (defined('HOME_PAGE')) {
                                 <div class="room__card is__style__four">
                                     <div class="room__card__top">
                                         <div class="room__card__image">
-                                            <a href="#">
+                                            <a href="'. $subRow->slug .'">
                                                 <img src="'. $imgLink .'" width="645" height="438" alt="room card">
                                             </a>
                                         </div>
@@ -150,7 +150,7 @@ if (defined('HOME_PAGE')) {
 
                                     <div class="col-md-6">
                                         <div class="room__card__meta">
-                                            <a href="#" class="room__card__title h4">'. $subRow->title .'</a>
+                                            <a href="'. $subRow->slug .'" class="room__card__title h4">'. $subRow->title .'</a>
                                             <div class="room__card__meta__info">
                                                 <span>'. $subRow->occupancy .' Guests</span>
                                                 <span>'. $subRow->room_size .'</span>
@@ -396,7 +396,7 @@ if(defined('HOME_PAGE')){
                         <div class="room__card is__style__four">
                             <div class="room__card__top">
                                 <div class="room__card__image">
-                                    <a href="#">
+                                    <a >
                                         <img src="'. $imgSrc .'" width="645" height="438" alt="room card">
                                     </a>
                                 </div>
@@ -411,7 +411,7 @@ if(defined('HOME_PAGE')){
                     <div class="room__card is__style__four">
                         <div class="room__card__top">
                             <div class="room__card__image">
-                                <a href="#">
+                                <a >
                                     <img src="'. BASE_URL . 'template/web/assets/images/restaurant/food1.jpg" width="645" height="438" alt="room card">
                                 </a>
                             </div>
@@ -428,7 +428,7 @@ if(defined('HOME_PAGE')){
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="room__card__meta">
-                                    <a href="#" class="room__card__title h4">'. $subRow->title .'</a>
+                                    <a  class="room__card__title h4">'. $subRow->title .'</a>
                                     '. $subRow->content .'
                                 </div>
                             </div>

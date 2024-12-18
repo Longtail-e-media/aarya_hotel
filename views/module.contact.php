@@ -98,3 +98,15 @@ else{
 }
 
 $jVars['module:contact-us'] = $rescont;
+
+$siteRegulars = Config::find_by_id(1);
+// pr($siteRegulars);
+$whats = '
+    <div class="whats_app">
+        <a href="https://wa.me/+'. $siteRegulars->whatsapp_a .'" target="_blank" class="whatsapp">
+            <img src="'. BASE_URL .'template/web/assets/images/icon/whatsapp.png">
+        </a>
+    </div>
+';
+
+$jVars['module:whatsapp-float'] = $whats;
