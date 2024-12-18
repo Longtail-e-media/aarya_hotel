@@ -196,23 +196,23 @@ if (isset($_GET['page']) && $_GET['page'] == "slideshow" && isset($_GET['mode'])
                 </div>
                 <?php }
                 else{?>
-                <div class="form-row">
+                <!-- <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">
                             Add Type :
                         </label>
                     </div>
                     <div class="form-checkbox-radio col-md-9">
-                        <input type="radio" class="custom-radi addtype" name="type" id="adtype1"
+                         <input type="radio" class="custom-radi addtype" name="type" id="adtype1"
                                value="1" <?php echo !empty($addtype) ? $addtype : "checked"; ?>>
-                        <label for="">youtube link</label>
+                        <label for="">youtube link</label> 
                         <input type="radio" class="custom-radi addtype" name="type" id="adtype0"
                                value="0" <?php echo !empty($unaddtype) ? $unaddtype : ""; ?>>
                         <label for="">Video upload</label>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="form-row add-image <?php echo !empty($imghide) ? $imghide : ''; ?>">
+                <!-- <div class="form-row add-image <?php echo !empty($imghide) ? $imghide : ''; ?>">
                     <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">
@@ -232,13 +232,13 @@ if (isset($_GET['page']) && $_GET['page'] == "slideshow" && isset($_GET['mode'])
                             <br/>Ex. Dailymotion : http://www.dailymotion.com/video/xzdijh_hire-data-entry-expert_news
                         </small>
                     </div>
-                </div>
+                </div> -->
            
                 </div> 
                 </div>
 
                 <div class="form-row <?php echo !empty($videohide) ? $videohide : '';
-                echo isset($_GET['id']) ? '' : 'hide'; ?> videolink">
+                echo isset($_GET['id']) ? '' : ''; ?> videolink">
                     <div class="form-label col-md-2">
                         <label for="">
                             Video :
@@ -287,7 +287,7 @@ if (isset($_GET['page']) && $_GET['page'] == "slideshow" && isset($_GET['mode'])
                 
                 <?php }?>
 
-                <div class="form-row">
+                <!-- <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">
                             Link Type :
@@ -301,9 +301,9 @@ if (isset($_GET['page']) && $_GET['page'] == "slideshow" && isset($_GET['mode'])
                                onClick="linkTypeSelect(1);" <?php echo !empty($external) ? $external : ""; ?>>
                         <label for="">External Link</label>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="form-row">
+                <!-- <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">
                             Link :
@@ -325,9 +325,9 @@ if (isset($_GET['page']) && $_GET['page'] == "slideshow" && isset($_GET['mode'])
                             </select>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="form-row">
+                <!-- <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">
                             Short Content :
@@ -337,7 +337,7 @@ if (isset($_GET['page']) && $_GET['page'] == "slideshow" && isset($_GET['mode'])
                         <textarea name="content" id="content"
                                   class="large-textarea"><?php echo !empty($advInfo->content) ? $advInfo->content : ""; ?></textarea>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-row">
                     <div class="form-label col-md-2">

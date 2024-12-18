@@ -39,7 +39,7 @@ else{
                         <div class="rts__contact">
                             <span class="h5 d-block mb-30">Love to hear from you<br/>
                                 Get in touch!</span><br/>
-                            <form action="enquery_mail.php" method="post" class="rts__contact__form" id="frm_contact">
+                            <form action="enquery_mail.php" class="rts__contact__form" id="frm_contact">
                                 <div class="form-input">
                                     <label for="name">Your Name</label>
                                     <div class="pr">
@@ -76,14 +76,14 @@ else{
                                     <div class="pr">
                                         <textarea id="msg" name="message" placeholder="Message" required></textarea>
                                         <img src="'. BASE_URL .'template/web/assets/images/icon/message.svg" width="20" height="20" alt="">
-                                    </div>
+                                    </div>  
                                 </div>
-                                <div class="form-input">
+                                <!--<div class="form-input">
                                     <div id="g-recaptcha-response" class="g-recaptcha" data-sitekey="6Lf1CysqAAAAAIgmN0_09HdspdNsgi6359cuvp4j"></div>
-                                </div>
+                                </div>-->
                                 <button type="submit" class="theme-btn btn-style fill w-100"><span>Send Message</span></button>
                             </form>
-                            <div class="mt-20" id="result_msg" ></div>
+                            <div class="mt-20 alert alert-success" id="result_msg" style="display:none;" ></div>
                         </div>
                     </div>
                     <div class="col-lg-6">

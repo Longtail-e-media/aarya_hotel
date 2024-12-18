@@ -314,12 +314,12 @@ if (defined('HOME_PAGE')) {
                 <div class="col-lg-3 '. $marginClass .'">
                     <div class="blog__item is__full is__event">
                         <div class="blog__item__thumb">
-                            <a href="#">
+                            <a href="'. $pkgRow->slug .'">
                                 <img src="'. $imageLink .'" alt="'.$pkgRow->title.'">
                             </a>
                         </div>
                         <div class="blog__item__meta">
-                            <a href="#" class="blog__item__meta__title">
+                            <a href="'. $pkgRow->slug .'" class="blog__item__meta__title">
                                 <h5>'. $pkgRow->title .'</h5>
                             </a>
                             <div class="blog__item__meta__list">

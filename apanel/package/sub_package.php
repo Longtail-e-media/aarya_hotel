@@ -396,7 +396,7 @@ if (isset($_GET['page']) && $_GET['page'] == "package" && isset($_GET['mode']) &
                                    value="<?php echo !empty($subpackageInfo->rojai_room_id) ? $subpackageInfo->rojai_room_id : ""; ?>">
                         </div>
                     </div>
-                    <div class="form-row">
+                    <!-- <div class="form-row">
                         <div class="form-label col-md-2">
                             <label for="">
                                 Currency Type :
@@ -407,9 +407,9 @@ if (isset($_GET['page']) && $_GET['page'] == "package" && isset($_GET['mode']) &
                                    name="currency" id="currency"
                                    value="<?php echo !empty($subpackageInfo->currency) ? $subpackageInfo->currency : ""; ?>">
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="form-row">
+                    <!-- <div class="form-row">
                         <div class="form-label col-md-2">
                             <label for="">Price :</label>
                         </div>
@@ -418,7 +418,7 @@ if (isset($_GET['page']) && $_GET['page'] == "package" && isset($_GET['mode']) &
                                    name="onep_price" id="room_price1"
                                    value="<?php echo !empty($subpackageInfo->onep_price) ? $subpackageInfo->onep_price : ''; ?>">
                         </div>
-                    </div>
+                    </div> -->
                      <!-- <div class="form-row">
                         <div class="form-label col-md-2">
                             <label for=""> Double Occupancy :</label>
@@ -582,7 +582,7 @@ if (isset($_GET['page']) && $_GET['page'] == "package" && isset($_GET['mode']) &
                         </div>
                     </div>
 
-                    <div class="form-row">
+                    <!-- <div class="form-row">
                         <div class="form-label col-md-2">
                             <label for="">View:</label>
                         </div>
@@ -591,9 +591,9 @@ if (isset($_GET['page']) && $_GET['page'] == "package" && isset($_GET['mode']) &
                                    name="view" id="view"
                                    value="<?php echo !empty($subpackageInfo->view) ? $subpackageInfo->view : ''; ?>">
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="form-row">
+                    <!-- <div class="form-row">
                         <div class="form-label col-md-2">
                             <label for="">Bed:</label>
                         </div>
@@ -602,7 +602,7 @@ if (isset($_GET['page']) && $_GET['page'] == "package" && isset($_GET['mode']) &
                                    name="bed" id="bed"
                                    value="<?php echo !empty($subpackageInfo->bed) ? $subpackageInfo->bed : ''; ?>">
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-row">
                         <div class="form-label col-md-2">

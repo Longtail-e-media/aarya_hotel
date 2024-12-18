@@ -124,7 +124,7 @@ if (isset($_GET['page']) && $_GET['page'] == "services" && isset($_GET['mode']) 
                                value="<?php echo !empty($advInfo->title) ? $advInfo->title : ""; ?>">
                     </div>
                 </div>
-                <div class="form-row">
+                <!-- <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">
                             Sub Title :
@@ -135,7 +135,7 @@ if (isset($_GET['page']) && $_GET['page'] == "services" && isset($_GET['mode']) 
                                id="sub_title"
                                value="<?php echo !empty($advInfo->sub_title) ? $advInfo->sub_title : ""; ?>">
                     </div>
-                </div>
+                </div> -->
                 <div class="form-row add-image">
                     <div class="form-label col-md-2">
                         <label for="">
@@ -188,7 +188,7 @@ if (isset($_GET['page']) && $_GET['page'] == "services" && isset($_GET['mode']) 
                     } ?>
                 </div>
 
-                <div class="form-row">
+                <!-- <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">
                             Icon :
@@ -198,9 +198,9 @@ if (isset($_GET['page']) && $_GET['page'] == "services" && isset($_GET['mode']) 
                         <input placeholder="e.g. fas fa-wifi" class="col-md-6" type="text" name="icon" id="icon"
                                value="<?php echo !empty($advInfo->icon) ? $advInfo->icon : ""; ?>">
                     </div>
-                </div>
+                </div> -->
 
-                <div class="form-row">
+                <!-- <div class="form-row">
                     <div class="form-label col-md-8">
                         <label for="">
                             Content :
@@ -210,9 +210,9 @@ if (isset($_GET['page']) && $_GET['page'] == "services" && isset($_GET['mode']) 
                         <a class="btn medium bg-orange mrg5T" title="Read More" id="readMore"
                            href="javascript:void(0);">
                             <span class="button-content">Read More</span>
-                        </a>
+                        </a>    
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-row">
                     <div class="form-label col-md-2">

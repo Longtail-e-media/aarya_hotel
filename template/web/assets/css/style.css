@@ -13141,6 +13141,14 @@ hr{
 .flaticon-star{
   color: #b3b3b3 !important;
 }
+.modal-close{
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  z-index: 1000;
+  font-size: 16px;
+  font-weight: 700;
+}
 /*
 if you need custom styles, please add it in this file below
 

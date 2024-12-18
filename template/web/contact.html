@@ -83,6 +83,7 @@
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
     
     <script type="text/javascript">
+        var base_url = jQuery('base').attr('url');
         $(document).ready(function () {
             $('#frm_contact').validate({
                 errorElement: 'span',
@@ -107,7 +108,7 @@
                     $.ajax({
                         type: "POST",
                         dataType: "JSON",
-                        url: "enquery_mail.php",
+                        url: base_url+"enquery_mail.php",
                         data: "action=forcoment&" + Frmval,
                         success: function (data) {
                             var msg = eval(data);

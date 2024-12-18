@@ -323,9 +323,7 @@
                             <div class="col-md-12">
                                 <div class="room__card__meta wow fadeInLeft">
                                     <a href="#" class="room__card__title h4 text-white">Unforgetable Events For every occassions</a>
-                                    <p class="font-sm pt-4 text-white">Perfect for private, corporate, and social events, our versatile space is<br>
-designed to impress and inspire. We can accommodate various setups to meet your specific<br>
-needs, ensuring a seamless and memorable event.</p>
+                                    <p class="font-sm pt-4 text-white">Perfect for private, corporate, and social events, our versatile space is<br> designed to impress and inspire. We can accommodate various setups to meet your specific<br> needs, ensuring a seamless and memorable event.</p>
                                     <a href="#" class="theme-btn btn-style sm-btn fill mt-5"><span>Book Now</span></a>
                                 </div>
                             </div>
@@ -544,6 +542,8 @@ needs, ensuring a seamless and memorable event.</p>
         </div>
     </div>
 
+    <jcms:module:popup/>
+    
     <!-- plugin js -->
     <script src="assets/js/plugins.min.js"></script>
     <script src="assets/js/gdpr.js"></script>
@@ -557,6 +557,11 @@ needs, ensuring a seamless and memorable event.</p>
             $('#nearbyTitle').text($(this).data('title'));
             $('#nearbyContent').text($(this).data('content'));
         })
+    </script>
+     <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#popupModal').modal('show');
+        });
     </script>
     <script type="text/javascript">
 

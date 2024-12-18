@@ -193,7 +193,7 @@ if (isset($_GET['page']) && $_GET['page'] == "features" && isset($_GET['mode']) 
                                                    class=""/></div>
                 </div>
 
-                <div class="form-row">
+                <!-- <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">
                             Icon :
@@ -203,9 +203,9 @@ if (isset($_GET['page']) && $_GET['page'] == "features" && isset($_GET['mode']) 
                         <input placeholder="fa fa-coffee" class="col-md-8" type="text" name="icon" id="icon"
                                value="<?php echo !empty($featuresInfo->icon) ? $featuresInfo->icon : ""; ?>">
                     </div>
-                </div>
+                </div> -->
 
-                <div class="form-row">
+                <div class="form-row" style="display: none;">
                     <div class="form-label col-md-8">
                         <label for="">
                             Brief :

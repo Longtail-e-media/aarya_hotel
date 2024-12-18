@@ -51,12 +51,12 @@ if (defined('HOME_PAGE') ) {
                 <div class="col-lg-3">
                     <div class="blog__item is__full is__event">
                         <div class="blog__item__thumb">
-                            <a href="#">
+                            <a>
                                 <img src="'. $mServImgLink .'" alt="'. $mServiceRow->title .'">
                             </a>
                         </div>
                         <div class="blog__item__meta">
-                            <a href="#" class="blog__item__meta__title">
+                            <a class="blog__item__meta__title">
                                 <h5>'. $mServiceRow->title .'</h5>
                             </a>
                             <div class="blog__item__meta__list">

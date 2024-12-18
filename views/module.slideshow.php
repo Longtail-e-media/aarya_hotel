@@ -25,15 +25,13 @@ if(!empty($vidBanner)){
             ';
         }
     }elseif(!empty($vidBanner[0]->source)){
-        $reslide = '
-            <div class="header-video">
-                <div id="hero_video">
-                    <video autoplay="" height="auto" id="video1" loop="" muted="" width="100%">
-                        <source src="'. $vidBanner[0]->source .'" type="video/mp4"> does not support 
-                    </video>
-                </div>
-            </div>
-        ';
+        // $reslide = '
+        //     <div class="header-video">
+        //         <div id="hero_video">
+        //             <iframe src="'.$vidBanner[0]->source.'" ></iframe>
+        //         </div>
+        //     </div>
+        // ';
     }
 }
 elseif(!empty($imgBanner)){

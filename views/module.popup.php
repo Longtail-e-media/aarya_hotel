@@ -243,5 +243,56 @@ if (!empty($popRec)) {
 }
 
 // pr($restst,1);
-$jVars['module:popup'] = $restst;
+// $jVars['module:popup'] = $restst;
+
+
+
+$popRec = Popup::get_allpopup(1);
+// pr($popRec,1);
+$popContent = '';
+foreach($popRec as $pop){
+    if($pop->image != 'a:0:{}'){
+        $unSerializedImg = unserialize($pop->image);
+        foreach($unSerializedImg as $key => $imgs){ 
+            $active = $key==0 ? 'active':'';
+            $popContent .= '
+                <div class="carousel-item '. $active .'">
+                    <a href="'. $pop->slug .'">
+                        <img src="'. IMAGE_PATH .'popup/'. $imgs .'" class="d-block w-100" alt="'. $pop->title .'">
+                    </a>
+                </div>
+                
+            ';
+        }
+    }
+    
+}
+$popup = '
+
+    <!-- Modal -->
+    <div class="modal fade" id="popupModal" tabindex="-1" aria-labelledby="popupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            '.$popContent.'
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+';
+
+$jVars['module:popup'] = $popup;
 ?>

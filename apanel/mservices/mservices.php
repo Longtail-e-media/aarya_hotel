@@ -125,7 +125,7 @@ if (isset($_GET['page']) && $_GET['page'] == "mservices" && isset($_GET['mode'])
                                value="<?php echo !empty($articlesInfo->title) ? $articlesInfo->title : ""; ?>">
                     </div>
                 </div>
-                <div class="form-row">
+                <!-- <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">
                             Sub Title :
@@ -136,7 +136,7 @@ if (isset($_GET['page']) && $_GET['page'] == "mservices" && isset($_GET['mode'])
                                name="sub_title" id="sub_title"
                                value="<?php echo !empty($articlesInfo->sub_title) ? $articlesInfo->sub_title : ""; ?>">
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-row">
                     <div class="form-label col-md-2">
@@ -215,7 +215,7 @@ if (isset($_GET['page']) && $_GET['page'] == "mservices" && isset($_GET['mode'])
                     } ?>
                 </div>
 
-                <div class="form-row">
+                <!-- <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">
                             Link Type :
@@ -229,9 +229,9 @@ if (isset($_GET['page']) && $_GET['page'] == "mservices" && isset($_GET['mode'])
                                onClick="linkTypeSelect(1);" <?php echo !empty($external) ? $external : ""; ?>>
                         <label for="">External Link</label>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="form-row">
+                <!-- <div class="form-row">
                     <div class="form-label col-md-2">
                         <label for="">
                             Link :
@@ -257,7 +257,7 @@ if (isset($_GET['page']) && $_GET['page'] == "mservices" && isset($_GET['mode'])
                             </select>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-row">
                     <div class="form-label col-md-12">

@@ -161,7 +161,7 @@ if (isset($_GET['page']) && $_GET['page'] == "articles" && isset($_GET['mode']) 
                 </div>                
             </div>   -->
 
-                <div class="form-row add-image">
+                <!-- <div class="form-row add-image">
                     <div class="form-label col-md-2">
                         <label for="">
                             Banner Image :
@@ -175,26 +175,26 @@ if (isset($_GET['page']) && $_GET['page'] == "articles" && isset($_GET['mode']) 
                             </small>
                         </label>
                         
-                    </div>
+                    </div> -->
                     <!-- Upload user image preview -->
-                    <div id="preview_Image"><input type="hidden" name="imageArrayname[]"/></div>
+                    <!-- <div id="preview_Image"><input type="hidden" name="imageArrayname[]"/></div>
                     <?php
-                    if (!empty($articlesInfo->image)) {
-                        $imgRec = unserialize($articlesInfo->image);
-                        if (is_array($imgRec)) {
-                            foreach ($imgRec as $key => $recimg) {
-                                $deleteid = rand(0, 99999);
-                                $imagePath = SITE_ROOT . 'images/articles/' . $recimg;
-                                if (file_exists($imagePath)) { ?>
+                    // if (!empty($articlesInfo->image)) {
+                    //     $imgRec = unserialize($articlesInfo->image);
+                    //     if (is_array($imgRec)) {
+                    //         foreach ($imgRec as $key => $recimg) {
+                    //             $deleteid = rand(0, 99999);
+                    //             $imagePath = SITE_ROOT . 'images/articles/' . $recimg;
+                    //             if (file_exists($imagePath)) { ?>
                                     <div class="col-md-3" id="removeSavedimg<?php echo $deleteid; ?>">
                                         <div class="infobox info-bg">
                                             <div class="button-group" data-toggle="buttons">
                             <span class="float-left">
                                 <?php
-                                if (file_exists(SITE_ROOT . "images/articles/" . $recimg)):
-                                    $filesize = filesize(SITE_ROOT . "images/articles/" . $recimg);
-                                    echo 'Size : ' . getFileFormattedSize($filesize);
-                                endif;
+                                // if (file_exists(SITE_ROOT . "images/articles/" . $recimg)):
+                                //     $filesize = filesize(SITE_ROOT . "images/articles/" . $recimg);
+                                //     echo 'Size : ' . getFileFormattedSize($filesize);
+                                // endif;
                                 ?>
                             </span>
                                                 <a class="btn small float-right" href="javascript:void(0);"
@@ -208,11 +208,11 @@ if (isset($_GET['page']) && $_GET['page'] == "articles" && isset($_GET['mode']) 
                                                    class="validate[required,length[0,250]]"/>
                                         </div>
                                     </div>
-                                <?php }
-                            }
-                        }
-                    } ?>
-                </div>
+                                <?php //}
+                            //}
+                        //}
+                    //} ?>
+                </div> -->
 
                 <!--<div class="form-row">
                     <div class="form-label col-md-2">
