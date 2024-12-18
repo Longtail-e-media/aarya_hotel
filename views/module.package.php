@@ -160,7 +160,7 @@ if (defined('HOME_PAGE')) {
                                             <a href="'. $subRow->slug .'" class="room__card__link mt-5">View Details</a>
                                             <br/>
 
-                                            <a href="#" class="theme-btn btn-style sm-btn fill mt-5"><span>Book Now</span></a>
+                                            <a href="'.BASE_URL.'result.php?hotel_code='.$booking_code.'" class="theme-btn btn-style sm-btn fill mt-5"><span>Book Now</span></a>
                                         </div>
                                     </div>
                                 </div>
