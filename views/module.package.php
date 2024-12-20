@@ -177,10 +177,12 @@ if (defined('HOME_PAGE')) {
                 
                 $roomNavBlock .= '
                     <div class="col-md-3 nav-link" data-bs-toggle="tab" data-bs-target="#'. $id .'" aria-controls="'. $id .'">
-                        <div class="room__card__image">
-                            <img src="'. $imgLink2 .'" alt="room card">
-                        </div>
-                        <h6 class="pt-3">'. $subRow->title .'</h6>
+                        <a href="#' . $id . '">
+                            <div class="room__card__image">
+                                <img src="'. $imgLink2 .'" alt="room card">
+                            </div>
+                            <h6 class="pt-3">'. $subRow->title .'</h6>
+                        </a>
                     </div>
                 ';
             }
