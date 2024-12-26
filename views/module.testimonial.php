@@ -35,7 +35,7 @@ $result_last = '
                 ' . $ratingStars . '
             </span>
         </div>
-        <span class="d-block fs-14 mb-0">Based on ' . $totalTestimonial . '+ reviews</span>
+        <a class="d-block fs-14 mb-0" style="font-size:14px;color:var(--rts-para);" href="' . BASE_URL . 'reviews">Based on ' . $totalTestimonial . '+ reviews</a>
     </div>
 ';
 // pr($result_last,1);
