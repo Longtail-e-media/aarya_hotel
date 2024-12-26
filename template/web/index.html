@@ -19,7 +19,7 @@
     <!-- <link rel="icon" href="assets/images/favicon.png" type="image/x-icon"> -->
      <jcms:site:favicon/>
     <!-- title -->
-     <title>Aarya Hotel & Spa - Traditional Charm with Modern Comfort</title>
+    <!--<title>Aarya Hotel & Spa - Traditional Charm with Modern Comfort</title>-->
 
 
     <!-- google fonts -->
@@ -28,7 +28,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Marcellus&display=swap" rel="stylesheet"> -->
     <!-- icon font from flaticon -->
     <link rel="stylesheet" href="assets/fonts/flaticon_bokinn.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet"
+          integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- all plugin css -->
     <link rel="stylesheet" href="assets/css/plugins.min.css">
     <!-- main style custom css -->
@@ -323,9 +324,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="room__card__meta wow fadeInLeft">
-                                    <a href="#" class="room__card__title h4 text-white">Unforgetable Events For every occassions</a>
+                                    <a href="#" class="room__card__title h4 text-white">Unforgettable Events For every occassions</a>
                                     <p class="font-sm pt-4 text-white">Perfect for private, corporate, and social events, our versatile space is<br> designed to impress and inspire. We can accommodate various setups to meet your specific<br> needs, ensuring a seamless and memorable event.</p>
-                                    <a href="#" class="theme-btn btn-style sm-btn fill mt-5" aria-label="Sign Up Button" data-bs-toggle="modal" data-bs-target="#eventform"><span>Book Now</span></a>
+                                    <a href="#" class="theme-btn btn-style sm-btn fill mt-5" aria-label="Book Now Button" data-bs-toggle="modal" data-bs-target="#eventform"><span>Book Now</span></a>
                                 </div>
                             </div>
                         </div>
@@ -524,7 +525,6 @@
             <path d="M7.30201 1.51317L7.29917 21.3422C7.29912 21.7057 6.97211 21.9993 6.5674 21.9993C6.16269 21.9992 5.83577 21.7055 5.83582 21.342L5.83844 3.10055L1.39753 7.08842C1.11169 7.34511 0.647535 7.34506 0.361762 7.0883C0.0759894 6.83155 0.0760493 6.41464 0.361896 6.15795L6.05367 1.04682C6.26405 0.857899 6.5773 0.802482 6.85167 0.905201C7.12374 1.00792 7.30205 1.24823 7.30201 1.51317Z" fill="#FFF" />
             <path d="M12.9991 6.6318C12.9991 6.80021 12.9282 6.96861 12.7841 7.09592C12.4983 7.35261 12.0341 7.35256 11.7483 7.0958L6.05118 1.97719C5.76541 1.72043 5.76547 1.30352 6.05131 1.04684C6.33716 0.790152 6.80131 0.790206 7.08709 1.04696L12.7842 6.16557C12.9283 6.29498 12.9991 6.46339 12.9991 6.6318Z" fill="#FFF" />
         </svg>
-
     </button>
     <!-- back to top end -->
     
@@ -535,61 +535,61 @@
                 <div class="max-content similar__form form__padding">
                     <div class="d-flex mb-3 align-items-center justify-content-between">
                         <h6 class="mb-0">Hall Enquiry</h6>
-                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close">
-                        </button>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
-                    <form action="#" class="d-flex flex-column gap-3">
+                    <form id="eventFrm" class="d-flex flex-column gap-3">
                         <div class="form-group">
-                            <label for="sname" class=" text-dark mb-3">Full Name <span class="ninja-forms-req-symbol">*</span></label>
+                            <label for="name" class=" text-dark mb-3">Full Name <span class="ninja-forms-req-symbol">*</span></label>
                             <div class="position-relative">
-                                <input type="text" name="sname" id="sname" placeholder="Full Name" required>
+                                <input type="text" name="name" id="name" placeholder="Full Name" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="signemail" class=" text-dark mb-3">Your Email <span class="ninja-forms-req-symbol">*</span></label>
+                            <label for="email" class=" text-dark mb-3">Your Email <span class="ninja-forms-req-symbol">*</span></label>
                             <div class="position-relative">
-                                <input type="email" name="signemail" id="signemail" placeholder="Enter your email" required>
+                                <input type="email" name="email" id="email" placeholder="Enter your email" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="signemail" class=" text-dark mb-3">Mobile No. <span class="ninja-forms-req-symbol">*</span></label>
+                            <label for="phone" class=" text-dark mb-3">Mobile No. <span class="ninja-forms-req-symbol">*</span></label>
                             <div class="position-relative">
-                                <input type="number" name="signemail" id="signemail" placeholder="Enter your number" required>
+                                <input type="number" name="phone" id="phone" placeholder="Enter your number" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="sname" class=" text-dark mb-3">Event Name <span class="ninja-forms-req-symbol">*</span></label>
+                            <label for="event_name" class=" text-dark mb-3">Event Name <span class="ninja-forms-req-symbol">*</span></label>
                             <div class="position-relative">
-                                <input type="text" name="sname" id="sname" placeholder="Event Name" required>
+                                <input type="text" name="event_name" id="event_name" placeholder="Event Name" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="sname" class=" text-dark mb-3">Event Date <span class="ninja-forms-req-symbol">*</span></label>
+                            <label for="event_date" class=" text-dark mb-3">Event Date <span class="ninja-forms-req-symbol">*</span></label>
                             <div class="position-relative">
-                                <input type="date" name="sname" id="sname" placeholder="Event Name" required>
+                                <input type="text" name="event_date" id="event_date" placeholder="Event Date" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="signemail" class=" text-dark mb-3">No. of Pax <span class="ninja-forms-req-symbol">*</span></label>
+                            <label for="pax" class=" text-dark mb-3">No. of Pax <span class="ninja-forms-req-symbol">*</span></label>
                             <div class="position-relative">
-                                <input type="number" name="signemail" id="signemail" placeholder="Enter Pax" required>
+                                <input type="number" min="1" name="pax" id="pax" placeholder="Enter Pax" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="spassword" class=" text-dark mb-3">Messsage <span class="ninja-forms-req-symbol">*</span></label>
-                            <textarea class="form-control" id="message-text" name="message" placeholder="Message"></textarea>
+                            <label for="message" class=" text-dark mb-3">Message <span class="ninja-forms-req-symbol">*</span></label>
+                            <textarea class="form-control" id="message" name="message" placeholder="Message"></textarea>
                         </div>
 
                         <div class="d-flex flex-wrap justify-content-center gap-4 mt-20 mb-20">
                             <div class="is__social facebook">
-                                <button class="theme-btn btn-style sm-btn"><span>Send</span></button>
+                                <div id="result_msg" class="alert-success alert" style="display: none"></div>
+                                <button class="theme-btn btn-style sm-btn" type="submit" id="event-submit"><span>Send</span></button>
                             </div>
                         </div>
                     </form>
@@ -619,56 +619,113 @@
     <!-- plugin js -->
     <script src="assets/js/plugins.min.js"></script>
     <script src="assets/js/gdpr.js"></script>
+    <script src="assets/js/jquery.validate.js"></script>
     <!-- custom js -->
     <script src="assets/js/main.js"></script>
     <script>
-        $('.nearbyDistance').click(function(){
-            $('#embeddedMap').attr('src',$(this).data('src'));
+        $('.nearbyDistance').click(function () {
+            $('#embeddedMap').attr('src', $(this).data('src'));
         })
-        $('.nearbyModalTrigger').click(function(){
+        $('.nearbyModalTrigger').click(function () {
             $('#nearbyTitle').text($(this).data('title'));
             $('#nearbyContent').text($(this).data('content'));
         })
     </script>
-     <script type="text/javascript">
-        $(window).on('load', function() {
+    <script type="text/javascript">
+        $(window).on('load', function () {
             $('#popupModal').modal('show');
         });
     </script>
     <script type="text/javascript">
 
-       $(document).ready(function () {
-    // Initialize Check-In Datepicker
-    $("#check__in").datepicker({
-        dateFormat: 'yy-mm-dd',
-        minDate: 0, // 0 days from today
-        onSelect: function (selectedDate) {
-            // Convert the selected date string to a Date object
-            var selected = new Date(selectedDate);
-            
-            // Ensure it's a valid date
-            if (!isNaN(selected)) {
-                // Add one day for the Check-Out date
-                selected.setDate(selected.getDate() + 1);
+        $(document).ready(function () {
+            // Initialize Check-In Datepicker
+            $("#check__in").datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: 0, // 0 days from today
+                onSelect: function (selectedDate) {
+                    // Convert the selected date string to a Date object
+                    var selected = new Date(selectedDate);
 
-                // Set the Check-Out Datepicker's minDate and date
-                $("#check__out").datepicker("option", "minDate", selected);
-                $("#check__out").datepicker("setDate", selected);
-            }
-        }
-    }).datepicker("setDate", new Date()); // Set Check-In to today's date
+                    // Ensure it's a valid date
+                    if (!isNaN(selected)) {
+                        // Add one day for the Check-Out date
+                        selected.setDate(selected.getDate() + 1);
 
-    // Initialize Check-Out Datepicker
-    $("#check__out").datepicker({
-        dateFormat: 'yy-mm-dd',
-        minDate: 1, // 1 day from today
-    });
+                        // Set the Check-Out Datepicker's minDate and date
+                        $("#check__out").datepicker("option", "minDate", selected);
+                        $("#check__out").datepicker("setDate", selected);
+                    }
+                }
+            }).datepicker("setDate", new Date()); // Set Check-In to today's date
 
-    // Set default Check-Out date to one day after today
-    var today = new Date();
-    today.setDate(today.getDate() + 1); // Add one day
-    $("#check__out").datepicker("setDate", today);
-});
+            // Initialize Check-Out Datepicker
+            $("#check__out").datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: 1, // 1 day from today
+            });
+
+            // Set default Check-Out date to one day after today
+            var today = new Date();
+            today.setDate(today.getDate() + 1); // Add one day
+            $("#check__out").datepicker("setDate", today);
+
+
+            $("#event_date").datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: 1, // 1 day from today
+            }).datepicker("setDate", today);
+
+            var base_url = jQuery('base').attr('url');
+            $('#eventFrm').validate({
+                errorElement: 'span',
+                errorClass: 'text-danger',
+                rules: {
+                    name: {required: true},
+                    email: {required: true, email: true},
+                    phone: {required: true},
+                    event_name: {required: true},
+                    event_date: {required: true},
+                    pax: {required: true},
+                    message: {required: true}
+                },
+                messages: {
+                    name: {required: "Full Name is required!"},
+                    email: {required: "Email is required!", email: "Please provide valid email address!"},
+                    phone: {required: "Mobile No. is required!"},
+                    event_name: {required: "Event Name is required!"},
+                    event_date: {required: "Event Date is required!"},
+                    pax: {required: "No. of Pax is required!"},
+                    message: {required: "Message is required!"}
+                },
+                errorPlacement: function (error, element) {
+                    // Find the closest container around the element and insert the error outside it
+                    var container = element.closest('.pr');
+                    if (container.length) {
+                        error.insertAfter(container); // Place error outside the container
+                    } else {
+                        error.insertAfter(element); // Default placement
+                    }
+                },
+                submitHandler: function (form) {
+                    var Frmval = $("form#eventFrm").serialize();
+                    $("button#event-submit").attr("disabled", "true").html('Processing...');
+                    $.ajax({
+                        type: "POST",
+                        dataType: "JSON",
+                        url: base_url + "enquery_mail.php",
+                        data: "action=forHallBooking&" + Frmval,
+                        success: function (data) {
+                            var msg = eval(data);
+                            $("button#event-submit").removeAttr("disabled").html('<span>Send</span>');
+                            $('div#result_msg').html(msg.message).css('display', 'block').fadeOut(8000);
+                            $("form#eventFrm")[0].reset();
+                        }
+                    });
+                    return false;
+                }
+            })
+        });
 
     </script>
 </body>
