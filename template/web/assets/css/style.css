@@ -153,6 +153,10 @@ All CSS Structure Follow this Order
     width: 100%;
 }
 
+.ninja-forms-req-symbol {
+    color: #e80000;
+}
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -8541,7 +8545,7 @@ hr{
   width: 100%;
   left: 60px;
   display: flex;
-  z-index: 9999;
+  z-index: 1000;
   bottom: 40%;
   justify-content: space-between;
   transform: translate(0, -50%);
@@ -9734,7 +9738,7 @@ hr{
 .main__room__slider {
   height: 585px;
   max-height: 585px;
-  padding: 0 30px;
+  /*padding: 0 30px;*/
 }
 
 .client__testimonial.is__home__one.has__background {
@@ -10697,6 +10701,12 @@ hr{
   border: 1px solid #F1F1F1;
   box-shadow: 0px 30px 30px rgba(132, 132, 132, 0.16);
   border-radius: 4px;
+}
+
+.facility__content1{
+    height:765px;
+    overflow:auto;
+    overflow-x:hidden;
 }
 .footer__newsletter form input::placeholder {
   color: var(--rts-para);

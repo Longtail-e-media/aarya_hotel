@@ -48,7 +48,7 @@ if (defined('HOME_PAGE') ) {
             }
 
             $servicecont .= '
-                <div class="col-lg-3">
+                <div class="swiper-slide room__wrapper">
                     <div class="blog__item is__full is__event">
                         <div class="blog__item__thumb">
                             <a>
@@ -84,8 +84,13 @@ if (defined('HOME_PAGE') ) {
                             </div>
                         </div>
                     </div>
-
-                    '. $servicecont .'
+                    <div class="col-lg-9">
+                        <div class="main__room__slider overflow-hidden wow fadeInUp" data-wow-delay=".5s">
+                            <div class="swiper-wrapper ">
+                                '. $servicecont .'
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

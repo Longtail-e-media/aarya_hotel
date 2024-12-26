@@ -451,106 +451,7 @@ if (isset($_GET['page']) && $_GET['page'] == "package" && isset($_GET['mode']) &
                         </div>
                     </div> -->
 
-                    <style type="text/css">
-                        .list {
-                            background-color: #d9d9d9;
-                            text-align: center;
-                            cursor: pointer;
-                            border: 1px solid gray;
-                        }
-
-                        .items {
-                            list-style-type: none;
-                            width: 60%;
-                        }
-
-                        .items li {
-                            float: left;
-                            margin: 2px;
-                            padding: 2px;
-                        }
-                    </style>
-
-                    <!-- Feature Listing -->
-                    <?php $svfr = !empty($subpackageInfo->feature) ? $subpackageInfo->feature : '';
-                    $saveRec = unserialize($svfr);
-                    $RecFearures = Features::get_all_byparnt(0);
-                    $items = 1;
-                    if ($RecFearures) {
-                        foreach ($RecFearures as $recRow) { ?>
-                            <div class="form-row">
-                                <div class="form-label col-md-2">
-                                    <label for="">
-                                        <?php echo $recRow->title; ?> :
-                                    </label>
-                                </div>
-                                <div class="form-checkbox-radio col-md-10 form-input">
-                                    <input type="text" placeholder="Title" class="col-md-4 validate[length[0,250]]"
-                                           name="fparent[<?php echo $recRow->id; ?>][]"
-                                           value="<?php echo !empty($saveRec[$recRow->id][0][0]) ? $saveRec[$recRow->id][0][0] : ''; ?>">
-                                    <div class="clear"></div>
-                                    <script>
-                                        $(document).ready(function () {
-                                            $("#items<?php echo $items;?>").sortable();
-                                        });
-                                    </script>
-                                    <ul id="items<?php echo $items; ?>" class="items">
-                                        <?php $childRec = Features::get_all_byparnt($recRow->id);
-                                        $checked = $unchecked = array();
-                                        if (!empty($saveRec)) {
-                                            //separating the checked ones in order they are saved in db
-                                            if (!empty($saveRec[$recRow->id][1])) {
-                                                foreach ($saveRec[$recRow->id][1] as $saved) {
-                                                    for ($i = 0; $i < sizeof($childRec); $i++) {
-                                                        if ($saved == $childRec[$i]->id) {
-                                                            $checked[] = [$childRec[$i]->id, $childRec[$i]->title];
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                            //separating the unchecked ones
-                                            foreach ($childRec as $childRow) {
-                                                if (!empty($saveRec[$recRow->id][1])) {
-                                                    $unchecked[] = (in_array($childRow->id, $saveRec[$recRow->id][1])) ? '' : [$childRow->id, $childRow->title];
-                                                }else{
-                                                    $unchecked[] = [$childRow->id, $childRow->title];
-                                                }
-                                            }
-                                        } else {
-                                            foreach ($childRec as $childRow) {
-                                                $unchecked[] = [$childRow->id, $childRow->title];
-                                            }
-                                        }
-                                        foreach ($checked as $checkd) { ?>
-                                            <li class="list">
-                                                <input type="checkbox" class="custom-radio"
-                                                       name="feature[<?php echo $recRow->id; ?>][]"
-                                                       value="<?php echo $checkd[0]; ?>" checked="checked">
-                                                <label for=""><?php echo $checkd[1]; ?></label>
-                                            </li>
-                                        <?php }
-                                        foreach ($unchecked as $uncheckd) {
-                                            if (!empty($uncheckd)) { ?>
-                                                <li class="list">
-                                                    <input type="checkbox" class="custom-radio"
-                                                           name="feature[<?php echo $recRow->id; ?>][]"
-                                                           value="<?php echo $uncheckd[0]; ?>">
-                                                    <label for=""><?php echo $uncheckd[1]; ?></label>
-                                                </li>
-                                            <?php }
-                                        }
-                                        ?>
-                                    </ul>
-                                </div>
-                            </div>
-                            <?php $items++;
-                        }
-
-                    } 
-                    // $feature_of_room = $subpackageInfo->class_room_style;
-                    // $none_selected = ($subpackageInfo->class_room_style == 'best_deal' || $subpackageInfo->class_room_style == 'featured_room')?'selected':'none';
-                    ?>
-
+                   
                     <!-- <div class="form-row">
                         <div class="form-label col-md-2">
                             <label for="">
@@ -658,18 +559,6 @@ if (isset($_GET['page']) && $_GET['page'] == "package" && isset($_GET['mode']) &
                                    value="<?php //echo !empty($subpackageInfo->checkinout) ? $subpackageInfo->checkinout : ''; ?>">
                         </div>
                     </div> -->
-
-                    <div class="form-row">
-                        <div class="form-label col-md-6">
-                            <label for="">
-                                Brief :
-                            </label>
-                            <div class="form-input">
-                                <textarea name="detail" id="detail"
-                                          class="medium-textarea"><?php echo !empty($subpackageInfo->detail) ? $subpackageInfo->detail : ""; ?></textarea>
-                            </div>
-                        </div>
-                    </div>
 
                 <?php } ?>
                 <?php if ($pkg->id == 12) { ?>

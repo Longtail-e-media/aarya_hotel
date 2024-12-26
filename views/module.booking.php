@@ -61,33 +61,35 @@ if($booking_type==2) {
             <div class="row">
                 <form action="result.php" class="advance__search">
                 <input type="hidden" name="hotel_code" value="'. $booking_code .'">
-                    <div class="advance__search__wrapper wow fadeInUp">
-                        <!-- single input -->
-                        <div class="query__input">
-                            <label for="check__in" class="query__label">Check In</label>
-                            <input type="text" id="check__in" name="check__in" placeholder="15 Jun 2024" required>
-                            <div class="query__input__icon">
-                                <i class="flaticon-calendar"></i>
-                            </div>
-                        </div>
-                        <!-- single input end -->
+                   <!-- HTML Structure -->
+<div class="advance__search__wrapper wow fadeInUp">
+    <!-- Check-In Input -->
+    <div class="query__input">
+        <label for="check__in" class="query__label">Check In</label>
+        <input type="text" id="check__in" name="check__in" placeholder="15 Jun 2024" required>
+        <div class="query__input__icon">
+            <i class="flaticon-calendar"></i>
+        </div>
+    </div>
+    <!-- Check-In Input End -->
 
-                        <!-- single input -->
-                        <div class="query__input">
-                            <label for="check__out" class="query__label">Check Out</label>
-                            <input type="text" id="check__out" name="check__out" placeholder="15 May 2024" required>
-                            <div class="query__input__icon">
-                                <i class="flaticon-calendar"></i>
-                            </div>
-                        </div>
-                        <!-- single input end -->
+    <!-- Check-Out Input -->
+    <div class="query__input">
+        <label for="check__out" class="query__label">Check Out</label>
+        <input type="text" id="check__out" name="check__out" placeholder="16 Jun 2024" required>
+        <div class="query__input__icon">
+            <i class="flaticon-calendar"></i>
+        </div>
+    </div>
+    <!-- Check-Out Input End -->
 
-                        <!-- submit button -->
-                        <button class="theme-btn btn-style fill no-border search__btn">
-                            <span>Check Availability</span>
-                        </button>
-                        <!-- submit button end -->
-                    </div>
+    <!-- Submit Button -->
+    <button class="theme-btn btn-style fill no-border search__btn">
+        <span>Check Availability</span>
+    </button>
+    <!-- Submit Button End -->
+</div>
+
                 </form>
             </div>
         </div>

@@ -89,6 +89,7 @@ $footer = '
                             <li>Narsingha  Chowk, Thamel, Kathmandu, Nepal</li>
                             <li>Tel.:  '.$tellinked.'</li>
                             <li>Email:   <a aria-label="footer__contact" href="mailto:'. $siteRegulars->email_address .'"> '. $siteRegulars->email_address .'</a></li>
+                            <i class="fas fa-phone-alt"></i>
                         </ul>
                     </div>
 

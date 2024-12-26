@@ -84,7 +84,7 @@ $header = '
                             '. $jVars['site:logo'] .'
                         </div>
                         <div class="main__right">
-                            <a href="'.BASE_URL.'result.php?hotel_code='.$booking_code.'" class="theme-btn btn-style sm-btn fill"><span>Book</span></a>
+                            <a href="'.BASE_URL.'result.php?hotel_code='.$booking_code.'" class="theme-btn btn-style sm-btn fill" target="_blank"><span>Book</span></a>
                             <button class="theme-btn btn-style sm-btn fill menu__btn d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                                 <span><img src="'. BASE_URL .'template/web/assets/images/icon/menu-icon.svg" alt="menu"></span>
                             </button>

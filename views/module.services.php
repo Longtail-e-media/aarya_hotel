@@ -5,7 +5,7 @@
 $rescont = $ressercont = '';
 $i = 0;
 $j = 0;
-$subpkgRec = Services::getservice_list(4);
+$subpkgRec = Services::getservice_list(1000);
 
 // pr($subpkgRec,1);
 if (!empty($subpkgRec)) {

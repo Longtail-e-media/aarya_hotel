@@ -130,7 +130,7 @@ if (defined('HOME_PAGE')) {
                 }
 
                 $homeRooms .= '
-                    <div class="tab-pane fade" id="'. $id .'" role="tabpanel" aria-labelledby="'. $id .'">
+                    <div class="tab-pane fade" id="'. $subRow->slug .'" role="tabpanel" aria-labelledby="'. $subRow->slug .'">
                             <div class="room__card is__style__four">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -160,7 +160,7 @@ if (defined('HOME_PAGE')) {
                                             <a href="'. $subRow->slug .'" class="room__card__link mt-5">View Details</a>
                                             <br/>
 
-                                            <a href="'.BASE_URL.'result.php?hotel_code='.$booking_code.'" class="theme-btn btn-style sm-btn fill mt-5"><span>Book Now</span></a>
+                                            <a href="'.BASE_URL.'result.php?hotel_code='.$booking_code.'" class="theme-btn btn-style sm-btn fill mt-5" target="_blank"><span>Book Now</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -176,8 +176,8 @@ if (defined('HOME_PAGE')) {
                 }
                 
                 $roomNavBlock .= '
-                    <div class="col-md-3 nav-link" data-bs-toggle="tab" data-bs-target="#'. $id .'" aria-controls="'. $id .'">
-                        <a href="#' . $id . '">
+                    <div class="col-md-3 nav-link" data-bs-toggle="tab" data-bs-target="#'. $subRow->slug .'" aria-controls="'. $subRow->slug .'">
+                        <a href="#'. $subRow->slug .'">
                             <div class="room__card__image">
                                 <img src="'. $imgLink2 .'" alt="room card">
                             </div>
@@ -190,7 +190,7 @@ if (defined('HOME_PAGE')) {
         }
         
         $finalPkgSec .= '
-            <div class="rts__section room-home-page section__padding">
+            <div class="rts__section room-home-page section__padding" style="z-index:111;">
                 <div class="container-fluid px-5">
                     <div class="row justify-content-center text-center mb-40">
                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
@@ -517,13 +517,13 @@ if (defined('PACKAGE_PAGE') and isset($_REQUEST['slug'])) {
                         <div class="room__card">
                             <div class="room__card__top">
                                 <div class="room__card__image">
-                                    <a href="package.html">
+                                    <a href="'. $subpkgRow->slug .'">
                                         <img src="'. $imgLink .'" width="420" height="310" alt="room card">
                                     </a>
                                 </div>
                             </div>
                             <div class="room__card__meta">
-                                <a href="package.html" class="room__card__title h6">'. $subpkgRow->title .'</a>
+                                <a href="'. $subpkgRow->slug .'" class="room__card__title h6">'. $subpkgRow->title .'</a>
                                 <div class="room__card__meta__info">
                                     <span><i class="flaticon-construction"></i>'. $subpkgRow->room_size .'</span>
                                     <span><i class="flaticon-user"></i>'. $subpkgRow->occupancy .' Person</span>
@@ -1252,8 +1252,9 @@ if (defined('SUBPACKAGE_PAGE') and isset($_REQUEST['slug'])) {
 
 
     }
-
-    $roomBooking = '
+     $roomBooking = '';
+    
+    $roomBooking .= '
         <div class="rts__section section__padding blog is__home__three" style="background: #f3e8c8;">
             <div class="section__shape">
                 <img src="'. BASE_URL .'template/web/assets/images/pillar.png" alt="'. $subpkgRec->title .'">
@@ -1263,11 +1264,32 @@ if (defined('SUBPACKAGE_PAGE') and isset($_REQUEST['slug'])) {
                     <div class="col-lg-8">
                         <div class="room__details__top">
                             <h5>'. $subpkgRec->short_title .'</h5>
-                            <!-- submit button -->
+                            <!-- submit button -->';
+                            if($pkgType==1){
+                            $roomBooking .= '
                             <button class="theme-btn btn-style fill no-border search__btn wow fadeInUp" data-wow-delay=".6s">
                                 <span>Book Your Room</span>
-                            </button>
-                            <!-- submit button end -->
+                                </button>
+                                <!-- submit button end -->';
+                            }
+                            elseif($subpkgRec->type==17){
+                                $roomBooking .= '
+                                <a class="theme-btn btn-style fill no-border search__btn wow fadeInUp" data-wow-delay=".6s">
+                                    <span>Inquire now</span>
+                                    </a>
+                                    <!-- submit button end -->';
+                            }
+                            elseif($subpkgRec->type==16 OR $subpkgRec->type==18){
+                                $roomBooking .= '
+                                <a class="theme-btn btn-style fill no-border search__btn wow fadeInUp" data-wow-delay=".6s">
+                                    <span>Inquire now</span>
+                                    </a>
+                                    <a class="theme-btn btn-style fill no-border search__btn wow fadeInUp" data-wow-delay=".6s">
+                                    <span>Chat with us</span>
+                                    </a>
+                                    <!-- submit button end -->';
+                            }
+                            $roomBooking .= '
                         </div>
                     </div>
                 </div>
@@ -1277,7 +1299,8 @@ if (defined('SUBPACKAGE_PAGE') and isset($_REQUEST['slug'])) {
 
 
 
-    $jVars['module:sub-package-booking'] = $roomBooking;
+
+$jVars['module:sub-package-booking'] = $roomBooking;
     $jVars['module:similar-rooms'] = $otherRoomDetails;
 
 }

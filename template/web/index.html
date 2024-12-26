@@ -28,6 +28,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Marcellus&display=swap" rel="stylesheet"> -->
     <!-- icon font from flaticon -->
     <link rel="stylesheet" href="assets/fonts/flaticon_bokinn.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- all plugin css -->
     <link rel="stylesheet" href="assets/css/plugins.min.css">
     <!-- main style custom css -->
@@ -86,10 +87,10 @@
         <div class="container-fluid px-5">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="assets/images/about/2.webp" alt="" class="mt-6">
+                    <img src="assets/images/about/2.webp" alt="" class="mt-4">
                 </div>
                 <div class="col-md-4">
-                    <img src="assets/images/about/3.webp" alt="" class="mt-7">
+                    <img src="assets/images/about/3.webp" alt="" class="mt-4">
                 </div>
                 <div class="col-md-4">
                     <img src="assets/images/about/6.webp" alt="" class="mt-4">
@@ -324,7 +325,7 @@
                                 <div class="room__card__meta wow fadeInLeft">
                                     <a href="#" class="room__card__title h4 text-white">Unforgetable Events For every occassions</a>
                                     <p class="font-sm pt-4 text-white">Perfect for private, corporate, and social events, our versatile space is<br> designed to impress and inspire. We can accommodate various setups to meet your specific<br> needs, ensuring a seamless and memorable event.</p>
-                                    <a href="#" class="theme-btn btn-style sm-btn fill mt-5"><span>Book Now</span></a>
+                                    <a href="#" class="theme-btn btn-style sm-btn fill mt-5" aria-label="Sign Up Button" data-bs-toggle="modal" data-bs-target="#eventform"><span>Book Now</span></a>
                                 </div>
                             </div>
                         </div>
@@ -348,14 +349,14 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="facility__content">
+                <div class="col-lg-6">
+                    <div class="facility__content facility__content1">
                         <div class="row wow fadeInUp" data-wow-delay=".5s">
                             <jcms:module:nearby-attractions/>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <div class="facility__image">
                         <iframe src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7064.161174367443!2d85.310651!3d27.714798!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18fcfd02fceb%3A0x121951cd31a52c6f!2sNarsingh%20Chowk%20Marg%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1729484602607!5m2!1sen!2snp' width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="embeddedMap"></iframe>
                     </div>
@@ -527,6 +528,76 @@
     </button>
     <!-- back to top end -->
     
+    <!-- event form -->
+    <div class="modal similar__modal fade " id="eventform">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="max-content similar__form form__padding">
+                    <div class="d-flex mb-3 align-items-center justify-content-between">
+                        <h6 class="mb-0">Hall Enquiry</h6>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+
+                    <form action="#" class="d-flex flex-column gap-3">
+                        <div class="form-group">
+                            <label for="sname" class=" text-dark mb-3">Full Name <span class="ninja-forms-req-symbol">*</span></label>
+                            <div class="position-relative">
+                                <input type="text" name="sname" id="sname" placeholder="Full Name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signemail" class=" text-dark mb-3">Your Email <span class="ninja-forms-req-symbol">*</span></label>
+                            <div class="position-relative">
+                                <input type="email" name="signemail" id="signemail" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signemail" class=" text-dark mb-3">Mobile No. <span class="ninja-forms-req-symbol">*</span></label>
+                            <div class="position-relative">
+                                <input type="number" name="signemail" id="signemail" placeholder="Enter your number" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sname" class=" text-dark mb-3">Event Name <span class="ninja-forms-req-symbol">*</span></label>
+                            <div class="position-relative">
+                                <input type="text" name="sname" id="sname" placeholder="Event Name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sname" class=" text-dark mb-3">Event Date <span class="ninja-forms-req-symbol">*</span></label>
+                            <div class="position-relative">
+                                <input type="date" name="sname" id="sname" placeholder="Event Name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signemail" class=" text-dark mb-3">No. of Pax <span class="ninja-forms-req-symbol">*</span></label>
+                            <div class="position-relative">
+                                <input type="number" name="signemail" id="signemail" placeholder="Enter Pax" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="spassword" class=" text-dark mb-3">Messsage <span class="ninja-forms-req-symbol">*</span></label>
+                            <textarea class="form-control" id="message-text" name="message" placeholder="Message"></textarea>
+                        </div>
+
+                        <div class="d-flex flex-wrap justify-content-center gap-4 mt-20 mb-20">
+                            <div class="is__social facebook">
+                                <button class="theme-btn btn-style sm-btn"><span>Send</span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- nearbypopup form -->
     <div class="modal similar__modal fade " id="signupModal">
         <div class="modal-dialog modal-dialog-centered">
@@ -566,24 +637,38 @@
     </script>
     <script type="text/javascript">
 
-        $(document).ready(function () {
-            // booking form datepicker
-            $("#check__in").datepicker({
-                dateFormat: 'yy-mm-dd',
-                minDate: 'dateToday',
-                onSelect: function (dateText) {
-                    var nextDay = new Date(dateText);
-                    nextDay.setDate(nextDay.getDate() + 1);
-                    $("#check__out").datepicker().datepicker("setDate", nextDay);
-                    $("#check__out").datepicker().datepicker('option', 'minDate', nextDay);
-                }
-            }).datepicker("setDate", new Date());
+       $(document).ready(function () {
+    // Initialize Check-In Datepicker
+    $("#check__in").datepicker({
+        dateFormat: 'yy-mm-dd',
+        minDate: 0, // 0 days from today
+        onSelect: function (selectedDate) {
+            // Convert the selected date string to a Date object
+            var selected = new Date(selectedDate);
+            
+            // Ensure it's a valid date
+            if (!isNaN(selected)) {
+                // Add one day for the Check-Out date
+                selected.setDate(selected.getDate() + 1);
 
-            $("#check__out").datepicker({
-                dateFormat: 'yy-mm-dd',
-                minDate: 'today' + 1,
-            }).datepicker("setDate", new Date());
-        });
+                // Set the Check-Out Datepicker's minDate and date
+                $("#check__out").datepicker("option", "minDate", selected);
+                $("#check__out").datepicker("setDate", selected);
+            }
+        }
+    }).datepicker("setDate", new Date()); // Set Check-In to today's date
+
+    // Initialize Check-Out Datepicker
+    $("#check__out").datepicker({
+        dateFormat: 'yy-mm-dd',
+        minDate: 1, // 1 day from today
+    });
+
+    // Set default Check-Out date to one day after today
+    var today = new Date();
+    today.setDate(today.getDate() + 1); // Add one day
+    $("#check__out").datepicker("setDate", today);
+});
 
     </script>
 </body>

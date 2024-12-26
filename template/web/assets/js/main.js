@@ -38,7 +38,7 @@
         rtsJs.jaraLux();
         rtsJs.backToTopInit();
         rtsJs.cookiePopup();
-        rtsJs.datePicker();
+        // rtsJs.datePicker();
         rtsJs.magnificPopup();
         rtsJs.mobileMenu();
         rtsJs.desktopMenu();
@@ -137,8 +137,8 @@
             centeredSlides: true,
             autoplay: true,
             navigation: {
-              nextEl: ".next",
-              prevEl: ".prev",
+              nextEl: ".prev",
+              prevEl: ".next",
             },
             pagination: {
               el: ".rts-pagination",
@@ -166,12 +166,12 @@
 
           // APARTMENT SLIDER
           var apartMent = new Swiper(".main__room__slider", {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 30,
             loop: true,
             speed: 1000,
             centeredSlides: false,
-            autoplay: false,
+            autoplay: true,
             pagination: {
               el: ".rts-pagination",
               clickable: true
@@ -195,7 +195,7 @@
                 slidesPerView: 3,
               },
               1400: {
-                slidesPerView: 4,
+                slidesPerView: 3,
               }
             }
           });

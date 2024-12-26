@@ -250,6 +250,8 @@ if (!empty($popRec)) {
 $popRec = Popup::get_allpopup(1);
 // pr($popRec,1);
 $popContent = '';
+$popup = '';
+if(!empty($popRec)){
 foreach($popRec as $pop){
     if($pop->image != 'a:0:{}'){
         $unSerializedImg = unserialize($pop->image);
@@ -293,6 +295,6 @@ $popup = '
         </div>
     </div>
 ';
-
+}
 $jVars['module:popup'] = $popup;
 ?>

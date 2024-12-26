@@ -41,14 +41,14 @@ else{
                                 Get in touch!</span><br/>
                             <form action="enquery_mail.php" class="rts__contact__form" id="frm_contact">
                                 <div class="form-input">
-                                    <label for="name">Your Name</label>
+                                    <label for="name">Your Name*</label>
                                     <div class="pr">
                                         <input type="text" id="name" name="name" placeholder="Your Name" required>
                                         <i class="flaticon-user"></i>
                                     </div>
                                 </div>
                                 <div class="form-input">
-                                    <label for="email">Your Email</label>
+                                    <label for="email">Your Email*</label>
                                     <div class="pr">
                                         <input type="email" id="email" name="email" placeholder="Your Email" required>
                                         <i class="flaticon-envelope"></i>
@@ -56,7 +56,7 @@ else{
                                 </div>
 
                                 <div class="form-input">
-                                    <label for="email">Your Address</label>
+                                    <label for="email">Your Address*</label>
                                     <div class="pr">
                                         <input type="text" id="address" name="address" placeholder="Your Address" required>
                                         <i class="flaticon-marker"></i>
@@ -64,7 +64,7 @@ else{
                                 </div>
 
                                 <div class="form-input">
-                                    <label for="email">Your Phone No.</label>
+                                    <label for="email">Your Phone No.*</label>
                                     <div class="pr">
                                         <input type="number" id="Phone" name="phone" placeholder="Your Phone" required>
                                         <i class="flaticon-phone-flip"></i>
@@ -72,7 +72,7 @@ else{
                                 </div>
 
                                 <div class="form-input">
-                                    <label for="msg">Your Message</label>
+                                    <label for="msg">Your Message*</label>
                                     <div class="pr">
                                         <textarea id="msg" name="message" placeholder="Message" required></textarea>
                                         <img src="'. BASE_URL .'template/web/assets/images/icon/message.svg" width="20" height="20" alt="">
