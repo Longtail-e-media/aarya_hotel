@@ -115,9 +115,9 @@ $restst = '';
 $tstRec = Testimonial::get_alltestimonial();
 if (!empty($tstRec)) {
     foreach ($tstRec as $tstRow) {
-        $img = BASE_URL . 'template/web/assets/images/author/3.webp';
+        $img = BASE_URL . 'template/web/assets/images/default_review.jpeg';
         $file_path = SITE_ROOT . 'images/testimonial/' . $tstRow->image;
-        if(file_exists($file_path)){
+        if (!empty($tstRow->image) and file_exists($file_path)) {
             $img = IMAGE_PATH . 'testimonial/' . $tstRow->image;
         }
 
