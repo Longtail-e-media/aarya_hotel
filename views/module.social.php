@@ -5,25 +5,20 @@
 $socialRec = SocialNetworking::getSocialNetwork();
 $siteRegulars = Config::find_by_id(1);
 $resocl = '';
-$disicon='';
+$disicon = '';
 
 
 if (!empty($socialRec)) {
     foreach ($socialRec as $socialRow) {
-        $icon= $socialRow->image;
-        
-if(!empty($icon)){
-    $disicon='<a href="' . $socialRow->linksrc . '" target="_blank"><img src="'.IMAGE_PATH.'social/' . $socialRow->image . '"/></a>';
-}
-else{
-    $disicon='<a href="' . $socialRow->linksrc . '" target="_blank"><i class="' . $socialRow->icon . '"></i></a>';
-}
-        
-        $resocl .= '
-        <li>
-        '.$disicon.'
-         </li>
-        ';
+        $icon = $socialRow->image;
+        $file_path = SITE_ROOT . 'images/social/' . $socialRow->image;
+        if (!empty($icon) and file_exists($file_path)) {
+            $disicon = '<a href="' . $socialRow->linksrc . '" aria-label="footer__social" class="link__item" target="_blank"><img src="' . IMAGE_PATH . 'social/' . $socialRow->image . '"/></a>';
+        } else {
+            $disicon = '<a href="' . $socialRow->linksrc . '" aria-label="footer__social" class="link__item" target="_blank"><i class="' . $socialRow->icon . '"></i></a>';
+        }
+
+        $resocl .= $disicon;
     }
 }
 
@@ -47,7 +42,7 @@ $ota = '';
 if (!empty($otaRec)) {
     foreach ($otaRec as $otaRow) {
         $ota .= ' 
-        <li><a href="' . $otaRow->linksrc . '" target="_blank"><img src="'.IMAGE_PATH.'ota/' . $otaRow->image . '"></a></li>';
+        <li><a href="' . $otaRow->linksrc . '" target="_blank"><img src="' . IMAGE_PATH . 'ota/' . $otaRow->image . '"></a></li>';
     }
 }
 
