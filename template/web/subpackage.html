@@ -72,7 +72,70 @@
     <!-- plugin js -->
     <script src="assets/js/plugins.min.js"></script>
     <script src="assets/js/gdpr.js"></script>
+    <script src="assets/js/jquery.validate.js"></script>
     <!-- custom js -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var today = new Date();
+            today.setDate(today.getDate() + 1); // Add one day
+
+            $("#event_date").datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: 1, // 1 day from today
+            }).datepicker("setDate", today);
+
+            var base_url = jQuery('base').attr('url');
+            $('#hallFrm').validate({
+                errorElement: 'span',
+                errorClass: 'text-danger',
+                rules: {
+                    name: {required: true},
+                    email: {required: true, email: true},
+                    phone: {required: true},
+                    event_name: {required: true},
+                    event_date: {required: true},
+                    pax: {required: true},
+                    message: {required: true}
+                },
+                messages: {
+                    name: {required: "Full Name is required!"},
+                    email: {required: "Email is required!", email: "Please provide valid email address!"},
+                    phone: {required: "Mobile No. is required!"},
+                    event_name: {required: "Event Name is required!"},
+                    event_date: {required: "Event Date is required!"},
+                    pax: {required: "No. of Pax is required!"},
+                    message: {required: "Message is required!"}
+                },
+                errorPlacement: function (error, element) {
+                    // Find the closest container around the element and insert the error outside it
+                    var container = element.closest('.pr');
+                    if (container.length) {
+                        error.insertAfter(container); // Place error outside the container
+                    } else {
+                        error.insertAfter(element); // Default placement
+                    }
+                },
+                submitHandler: function (form) {
+                    var Frmval = $("form#hallFrm").serialize();
+                    $("button#event-submit").attr("disabled", "true").html('Processing...');
+                    $.ajax({
+                        type: "POST",
+                        dataType: "JSON",
+                        url: base_url + "enquery_mail.php",
+                        data: "action=forHallBooking&" + Frmval,
+                        success: function (data) {
+                            var msg = eval(data);
+                            $("button#event-submit").removeAttr("disabled").html('<span>Send</span>');
+                            $('div#result_msg').html(msg.message).css('display', 'block').fadeOut(8000);
+                            $("form#hallFrm")[0].reset();
+                        }
+                    });
+                    return false;
+                }
+            })
+        });
+    </script>
 </body>
 </html>
